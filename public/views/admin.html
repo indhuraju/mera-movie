@@ -1,85 +1,122 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-
+<h1>Add movie details:</h1>
 <div class="container">
-<nav>
-    	<ul class="mcd-menu">
-			<li>
-				<a href="">
-					<i class="fa fa-home"></i>
-					<strong>HOME </strong>
-					<small>SIGN IN</small>
-				</a>
-			</li>
-			<li>
-				<a href="" class="active">
-					<i class="fa fa-edit"></i>
-					<strong>ADD MOVIES</strong>
-					<small>UPDATE MOVIES</small>
-				</a>
-			</li>
-			<li>
-				<a href="">
-					<i class="fa fa-gift"></i>
-					<strong>ADD THEATERS</strong>
-					<small>UPDATE THEATERES</small>
-				</a>
-			</li>
-			<li>
-				<a href="">
-					<i class="fa fa-globe"></i>
-					<strong>News</strong>
-					<small>sweet home</small>
-				</a>
-			</li>
-			<li>
-				<a href="">
-					<i class="fa fa-comments-o"></i>
-					<strong>Blog</strong>
-					<small>what they say</small>
-				</a>
-				<ul>
-					<li><a href="#"><i class="fa fa-globe"></i>Mission</a></li>
-					<li>
-						<a href="#"><i class="fa fa-group"></i>Our Team</a>
-						<ul>
-							<li><a href="#"><i class="fa fa-female"></i>Leyla Sparks</a></li>
-							<li>
-								<a href="#"><i class="fa fa-male"></i>Gleb Ismailov</a>
-								<ul>
-									<li><a href="#"><i class="fa fa-leaf"></i>About</a></li>
-									<li><a href="#"><i class="fa fa-tasks"></i>Skills</a></li>
-								</ul>
-							</li>
-							<li><a href="#"><i class="fa fa-female"></i>Viktoria Gibbers</a></li>
-						</ul>
-					</li>
-					<li><a href="#"><i class="fa fa-trophy"></i>Rewards</a></li>
-					<li><a href="#"><i class="fa fa-certificate"></i>Certificates</a></li>
-				</ul>
-			</li>
-			<li>
-				<a href="">
-					<i class="fa fa-picture-o"></i>
-					<strong>Portfolio</strong>
-					<small>sweet home</small>
-				</a>
-			</li>
-			<li>
-				<a href="">
-					<i class="fa fa-envelope-o"></i>
-					<strong>Contacts</strong>
-					<small>drop a line</small>
-				</a>
-			</li>
-			<li class="float">
-				<a class="search">
-					<input type="text" value="search ...">
-					<button><i class="fa fa-search"></i></button>
-				</a>
-				<a href="" class="search-mobile">
-					<i class="fa fa-search"></i>
-				</a>
-			</li>
-		</ul>
-	</nav>
+<form>
+  <div class="form-group">
+      <label for="ID">Movie ID:</label>
+      <input type="Number" class="form-control" id="ID">
+    </div>
+  <div class="form-group">
+      <label for="name">Movie Name:</label>
+      <input type="text" class="form-control" id="name">
+    </div>
+   <div class="form-group">
+<label for="img">Movie Image:</label>
+<input type="text" class="form-control" id="img"><br>
+
+<td><button ng-click="addimg()" class="btn btn-primary">Add Image</button></td>
+<br>
 </div>
+<div class="form-group">
+<label for="pro">Producer:</label>
+<input type="txt" class="form-control" id="pro">
+</div>
+<div class="form-group">
+<label for="cast">Cast and Crew:</label>
+<input type="txt" class="form-control" id="cast">
+</div>
+<div class="form-group">
+<label for="dur">Duration:</label>
+<input type="num" class="form-control" id="dur">
+</div>
+<div class="form-group">
+<label for="dir">Director:</label>
+<input type="txt" class="form-control" id="dir">
+</div>
+<div>
+  <label for="type">Movie Type:</label>
+</div>
+<br>
+<label class="radio-inline">
+<input type="radio" name="optradio">Romantic Movie
+   </label>
+   <label class="radio-inline">
+   <input type="radio" name="optradio">Horror Movie
+      </label>
+    <label class="radio-inline">
+    <input type="radio" name="optradio">Adventure Movie
+       </label>
+     <label class="radio-inline">
+     <input type="radio" name="optradio">Comedy Movie
+   </label>
+   <br><br>
+<div>
+<td><button ng-click="addMovie()" class="btn btn-primary">Add Movie</button></td>
+<td><button ng-click="removeMovie()" class="btn btn-danger">Edit Movie</button></td>
+</form>
+</div>
+</div>
+
+<h1>Add theater details:</h1>
+<div class="container">
+<form>
+  <div class="form-group">
+      <label for="ID">Theater ID:</label>
+      <input type="text" class="form-control" id="ID">
+    </div>
+    <div class="form-group">
+      <label for="Name"> Theater Name:</label>
+      <input type="text" class="form-control" id="name">
+    </div>
+    <div class="form-group">
+      <label for="loc"> Theater Location:</label>
+      <input type="text" class="form-control" id="loc">
+    </div>
+    <div class="form-group">
+      <label for="scrn"> Theater Screen:</label>
+      <input type="text" class="form-control" id="scrn">
+    </div>
+  <br>
+  <div>
+  <td><button ng-click="addMovie()" class="btn btn-primary">Add Theater</button></td>
+  <td><button ng-click="removeMovie()" class="btn btn-danger">Edit Theater</button></td>
+  </form>
+</div>
+</div>
+<h2>Add city</h2>
+<div class="container">
+<form>
+  <div class="form-group">
+      <label for="name">City Name:</label>
+      <input type="text" class="form-control" id="name">
+    </div>
+    <div class="form-group">
+        <label for="name">City State:</label>
+        <input type="text" class="form-control" id="name">
+      </div>
+    <div>
+    <td><button ng-click="addMovie()" class="btn btn-primary">Add City</button></td>
+    <td><button ng-click="removeMovie()" class="btn btn-danger">Edit City</button></td>
+    </form>
+  </div>
+</div>
+<h2>Add Show Time's</h2>
+<div class="container">
+<form>
+  <div class="form-group">
+      <label for="name">Show ID:</label>
+      <input type="Number" class="form-control" id="name">
+    </div>
+    <div class="form-group">
+        <label for="name">Show Name:</label>
+        <input type="text" class="form-control" id="name">
+      </div>
+      <div class="form-group">
+          <label for="name">Show Timming:</label>
+          <input type="Number" class="form-control" id="name">
+        </div>
+        <div>
+        <td><button ng-click="addMovie()" class="btn btn-primary">Add Time</button></td>
+        <td><button ng-click="removeMovie()" class="btn btn-danger">Edit Time</button></td>
+      </div>
+      </form>
+    </div>

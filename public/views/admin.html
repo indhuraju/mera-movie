@@ -418,6 +418,12 @@
 
                                                       </tr>
                                                       <tr ng-repeat="st in showtimelist">
+                                                        <!-- <select>
+                                                         <option value="3.00PM">3.00PM</option>
+                                                         <option value="6.00PM">6.00PM</option>
+                                                         <option value="10.00PM">10.00PM</option>
+                                                         <option value="12.00PM">12.00PM</option>
+                                                         </select> -->
                                                           <!-- <td>{{showtime.TheaterName}}</td> -->
                                                           <!-- <td>{{time.showName}}</td> -->
                                                           <td>{{st.showTiming}}</td>
@@ -428,8 +434,9 @@
                                                 </table></li>
                                               </ul>
 
+
                                               <li class="collapsed" data-target="#citydetail" data-toggle="collapse">
-                                              <!-- <a href="#"> -->
+
                                                 <i class=""><img src="http://skyrites.com/projects/spaciux/images/fa-user3.png" alt=""></i> <strong style="color:black">Add City</strong> <span class="arrow"></span></a>
                                             </li>
 
@@ -450,35 +457,35 @@
                                                                    <!-- cityName -->
                                                                     <td><input ng-model="cities.cityName"/></td>
 
-                                                                  <td><button ng-click="add()" class="btn btn-primary">Add City</button></td>
-                                                                  <td><button ng-click="update()" class="btn btn-primary">Update</button></td>
+                                                                  <td><button ng-click="addCity()" class="btn btn-primary">Add City</button></td>
+                                                                  <td><button ng-click="updateCity()" class="btn btn-primary">Update</button></td>
 
                                                                 </tr>
                                                                 <tr ng-repeat="cty in citieslist">
                                                                     <!-- <td>{{city.CityID}}</td> -->
                                                                     <td>{{cty.cityName}}</td>
 
-                                                               <td><button ng-click="remove(cty)" class="btn btn-danger">Remove</button></td>
-                                                                    <td><button ng-click="edit(cty)" class="btn btn-primary">Edit</button></td>
+                                                               <td><button ng-click="removeCity(cty)" class="btn btn-danger">Remove</button></td>
+                                                                    <td><button ng-click="editCity(cty)" class="btn btn-primary">Edit</button></td>
                                                                 </tr>
                                                             </tbody>
                                                           </table></li>
                                                         </ul>
 
 
-                                                                                          <li class="collapsed" data-target="#theaterdetail" data-toggle="collapse">
+                                                                                          <li class="collapsed" data-target="#theatredetail" data-toggle="collapse">
                                                                                           <!-- <a href="#"> -->
-                                                                                            <i class=""><img src="http://skyrites.com/projects/spaciux/images/fa-user2.png" alt=""></i> <strong style="color:black">Add Theaters</strong> <span class="arrow"></span></a>
+                                                                                            <i class=""><img src="http://skyrites.com/projects/spaciux/images/fa-user2.png" alt=""></i> <strong style="color:black">Add Theatres</strong> <span class="arrow"></span></a>
                                                                                         </li>
 
-                                                                                        <ul id="theaterdetail" class="sub-menu collapse">
+                                                                                        <ul id="theatredetail" class="sub-menu collapse">
                                                                                           <li class="active">	<table class="table">
                                                                                                         <thead>
                                                                                                             <tr>
                                                                                                                 <!-- <th>Theater ID</th> -->
-                                                                                                                <th>Theater Name</th>
-                                                                                                                <th>Theater City</th>
-                                                                                                                <th>Theater ShowTiming</th>
+                                                                                                                <th>Theatre Name</th>
+                                                                                                                <th>Theatre City</th>
+                                                                                                                <th>Theatre ShowTiming</th>
                                                                                                                 <th>Ticket Price</th>
 
                                                                                                           </tr>
@@ -487,25 +494,30 @@
                                                                                                             <tr>
 
                                                                                                                <!-- <td><input ng-model="thtre.Theater ID"/></td> -->
-                                                                                                                <td><input ng-model="theater.TheaterName"/></td>
-                                                                                                                <td><input ng-model="theater.TheaterCity"/></td>
-                                                                                                                <td><input ng-model="theater.TheaterShowTiming"/></td>
-                                                                                                                <td><input ng-model="theater.TicketPrice"></td>
+                                                                                                                <td><input ng-model="thtrs.theatreName"/></td>
+                                                                                                                <td><input ng-model="thtrs.theatreCity"/></td>
+                                                                                                                <td><input ng-model="thtrs.theatreShowTiming"/></td>
+                                                                                                                <!-- <select>
+                                                                                                                 <option value="3.00PM">3.00PM</option>
+                                                                                                                 <option value="6.00PM">6.00PM</option>
+                                                                                                                 <option value="10.00PM">10.00PM</option>
+                                                                                                                 <option value="12.00PM">12.00PM</option>
+                                                                                                                 </select> -->
+                                                                                                                <td><input ng-model="thtrs.theatreTicketPrice"/></td>
 
-
-                                                                                                              <td><button ng-click="addTheater(theater)" class="btn btn-primary">Add Theater</button></td>
-                                                                                                              <td><button ng-click="updateTheater(theater)" class="btn btn-primary">Update</button></td>
+                                                                                                              <td><button ng-click="addTr()" class="btn btn-primary">Add Theatre</button></td>
+                                                                                                              <td><button ng-click="updateTr()" class="btn btn-primary">Update</button></td>
 
                                                                                                             </tr>
-                                                                                                            <tr ng-repeat=" theater in theaterlist">
+                                                                                                            <tr ng-repeat=" thtres in thtrslist">
                                                                                                                 <!-- <td>{{thtre.Theater ID}}</td> -->
-                                                                                                                <td>{{theater.TheaterName}}</td>
-                                                                                                                <td>{{theater.TheaterCity}}</td>
-                                                                                                                <td>{{theater.TheaterShowTiming}}</td>
-                                                                                                                <td>{{theater.TheaterTicketPrice}}</td>
+                                                                                                                <td>{{thtres.theatreName}}</td>
+                                                                                                                <td>{{thtres.theatreCity}}</td>
+                                                                                                                <td>{{thtres.theatreShowTiming}}</td>
+                                                                                                                <td>{{thtres.theatreTicketPrice}}</td>
 
-                                                                                                               <td><button ng-click="removeTheater(theater)" class="btn btn-danger">Remove</button></td>
-                                                                                                                <td><button ng-click="editTheater(theater)" class="btn btn-primary">Edit</button></td>
+                                                                                                               <td><button ng-click="removeTr(thtres)" class="btn btn-danger">Remove</button></td>
+                                                                                                                <td><button ng-click="editTr(thtres)" class="btn btn-primary">Edit</button></td>
                                                                                                             </tr>
                                                                                                         </tbody>
                                                                                                       </table></li></ul>
@@ -516,45 +528,65 @@
                                                                                                           <strong style="color:black">Add Movies</strong> <span class="arrow"></span>
                                                                                                       </li>
 
-                                                                                                      <ul id="moviedetail" class="sub-menu collapse fade">
-                                                                                                          <li class="active">
-                                                                                                                    <table class="table">
-                                                                                                                                <thead>
-                                                                                                                                    <tr>
-                                                                                                                                        <!-- <th>MOVIE ID</th> -->
-                                                                                                                                        <th>MOVIE NAME</th>
-                                                                                                                                        <th>MOVIE LANGUAGE</th>
-                                                                                                                                        <!-- <th>MOVIE TYPE</th>
-                                                                                                                                        <th>MOVIE DIRECTOR</th> -->
+<ul id="moviedetail" class="sub-menu collapse fade">
+<li class="active">
+<table class="table">
+<thead>
+<tr>
+<!-- <th>MOVIE ID</th> -->
+<th>MOVIE TITLE</th>
+<!-- <th>MOVIE YEAR</th> -->
+<!-- <th>MOVIE TYPE</th>
 
-                                                                                                                                  </tr>
-                                                                                                                                </thead>
-                                                                                                                                <tbody>
-                                                                                                                                    <tr>
+  </tr>
+  </thead>
+<tbody>
+<tr>
+ <td><input ng-model="movieObj.Title" /></td>
+<td><input ng-model="movieObj.Year" /></td> -->
+<!-- <td><button ng-click="getData()" class="btn btn-primary">GET</button></td>
+<td><button ng-click="addData()" class="btn btn-primary">ADD</button></td> -->
+
+ </tr>
+</tbody>
+
+<tbody>
+<tr>
 
 
-                                                                                                                                      <!-- <td><input ng-model="movie.movieID"/></td> -->
-                                                                                                                                        <td><input ng-model="movie.movieName"/></td>
-                                                                                                                                        <td><input ng-model="movie.movilanguage"/></td>
+<!-- <td><input ng-model="movie.movieID"/></td> -->
+<td><input ng-model="mov.movieTitle"/></td>
+<!-- <td><input ng-model="mov.movieYear"/></td> -->
+<!-- <td><input ng-model="mov.movieLanguage"/></td>
+<td><input ng-model="mov.moviePoster"/></td>
+<td><input ng-model="mov.movieGenre"/></td>
+<td><input ng-model="mov.movieDirector"/></td>
+<td><input ng-model="mov.movieActors"/></td> -->
                                                                                                                                         <!-- <td><input ng-model="movie.movietype"/></td>
                                                                                                                                         <td><input ng-model="movie.moviedirector"/></td> -->
 
-                                                                                                                                      <td><button ng-click="addMovie(movie)" class="btn btn-primary">Add Movie</button></td>
-                                                                                                                                      <td><button ng-click="updateMovie(movie)" class="btn btn-primary">Update</button></td>
+<td><button ng-click="addm(mov)" class="btn btn-primary">Add Movie</button></td>
+<!-- <td><button ng-click="updatem()" class="btn btn-primary">Update</button></td> -->
 
-                                                                                                                                    </tr>
-                                                                                                                                    <tr ng-repeat=" movie in movielist">
-                                                                                                                                        <!-- <td>{{movie.movieID}}</td> -->
-                                                                                                                                        <td>{{movie.movieName}}</td>
-                                                                                                                                        <td>{{movie.movielanguage}}</td>
-                                                                                                                                        <!-- <td>{{movie.movietype}}</td>
-                                                                                                                                        <td>{{movie.moviedirector}}</td> -->
+</tr>
+<tr ng-repeat="m in movList">
+<!-- <td>{{movie.movieID}}</td> -->
+<td>{{m.movieTitle}}</td>
+<td>{{m.movieYear}}</td>
+<td>{{m.movieLanguage}}</td>
+<td>{{m.moviePoster}}</td>
+<td>{{m.movieGenre}}</td>
+<td>{{m.movieDirector}}</td>
+<td>{{m.movieActors}}</td>
+<!-- <td>{{movie.movietype}}</td>
+<td>{{movie.moviedirector}}</td> -->
 
-                                                                                                                                       <td><button ng-click="removeMovie(movie)" class="btn btn-danger">Remove</button></td>
-                                                                                                                                        <td><button ng-click="editMovie(movie)" class="btn btn-primary">Edit</button></td>
-                                                                                                                                    </tr>
-                                                                                                                                </tbody>
-                                                                                                                     </table></li></ul>
+<td><button ng-click="removem(m)" class="btn btn-danger">Remove</button></td>
+<!-- <td><button ng-click="editm(movi)" class="btn btn-primary">Edit</button></td> -->
+  </tr>
+</tbody>
+
+</table></li></ul>
 
                                                                                                           <!-- <li><a href="#">Carpenter</a></li> -->
                                                                                                       </ul>

@@ -1,15 +1,15 @@
-<table class="table">
+<!-- <table class="table">
             <thead>
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
-                    
+
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                 <td><input ng-model="contact.movieID" /></td>
-                    <td><input ng-model="contact.movieName" /></td>
+                 <td><input ng-model="movie.movieID" /></td>
+                    <td><input ng-model="movie.movieName" /></td>
                     <td><button ng-click="addMovie()" class="btn btn-primary">Add Movie</button></td>
                     <td><button ng-click="updateMovie()" class="btn btn-primary">Update</button></td>
 
@@ -20,4 +20,24 @@
                     <td><button ng-click="editMovie(contact)" class="btn btn-primary">Edit</button></td>
                 </tr>
             </tbody>
- </table>
+ </table> -->
+ <h2>OMDB DATA</h2>
+
+   <table class="table">
+               <thead>
+                   <tr>
+                       <th>Title</th>
+                       <th>Year</th>
+
+                   </tr>
+               </thead>
+               <tbody>
+                   <tr>
+                     <td><input ng-model="movieObj.Title" /></td>
+                        <td><input ng-model="movieObj.Year" /></td>
+                        <td><button ng-click="getData()" class="btn btn-primary">GET</button></td>
+                        <td><button ng-click="addData()" class="btn btn-primary">ADD</button></td>
+
+                    </tr>
+                  </tbody>
+                </table>

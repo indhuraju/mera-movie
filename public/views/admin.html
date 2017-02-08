@@ -372,169 +372,159 @@
 }
 </style>
 <div class="container">
-          <div class="row">
+ <div class="row">
+  <div class="col-sm-12 col-md-12">
 
-            <div class="col-sm-12 col-md-12">
+    <div class="nav-side-menu">
+    <div class="brand">Filter</div>
+    <button aria-expanded="true" data-target="#menu-content" data-toggle="collapse" class="fa fa-bars fa-2x toggle-btn"></button>
 
-                <div class="nav-side-menu">
-                    <div class="brand">Filter</div>
-                    <button aria-expanded="true" data-target="#menu-content" data-toggle="collapse" class="fa fa-bars fa-2x toggle-btn"></button>
+    <div class="menu-list">
 
-                        <div class="menu-list">
+    <ul class="menu-content collapse in" id="menu-content">
+<li class="collapsed" data-target="#showdetail" data-toggle="collapse">
+<!-- <a href="#"> -->
+  <i class=""><img src="http://skyrites.com/projects/spaciux/images/fa-user5.png" alt=""></i> <strong style="color:black">Add Show time</strong> <span class="arrow"></span></a>
+</li>
 
-                            <ul class="menu-content collapse in" id="menu-content">
-
-
-                                    <!-- <li><a href="#">Full Interior Service</a></li><
-                                    <li><a href="#">Design only</a></li>
-                                    <li><a href="#">Execution only</a></li>
-                                    <li><a href="#">Other services</a></li> -->
-
-                                    <li class="collapsed" data-target="#showdetail" data-toggle="collapse">
-                                    <!-- <a href="#"> -->
-                                      <i class=""><img src="http://skyrites.com/projects/spaciux/images/fa-user5.png" alt=""></i> <strong style="color:black">Add Show time</strong> <span class="arrow"></span></a>
-                                    </li>
-
-                                    <ul id="showdetail" class="sub-menu collapse">
-                                    <li class="active">	<table class="table">
-                                                  <thead>
-                                                      <tr>
-                                                          <!-- <th>Theater Name</th> -->
-                                                          <!-- <th>Show Name</th> -->
-                                                          <th>Show Timing</th>
-
-
-                                                    </tr>
-                                                  </thead>
-                                                  <tbody>
-                                                      <tr>
-
-                                                         <!-- <td><input ng-model="showtime.TheatreName"/></td> -->
-                                                          <!-- <td><input ng-model="time.showName"/></td> -->
-                                                            <td><input ng-model="showtime.showTiming "/></td>
-
-                                                        <td><button ng-click="addShow()" class="btn btn-primary">Add Time</button></td>
-                                                        <td><button ng-click="updateShow()" class="btn btn-primary">Update</button></td>
-
-                                                      </tr>
-                                                      <tr ng-repeat="st in showtimelist">
-                                                        <!-- <select>
-                                                         <option value="3.00PM">3.00PM</option>
-                                                         <option value="6.00PM">6.00PM</option>
-                                                         <option value="10.00PM">10.00PM</option>
-                                                         <option value="12.00PM">12.00PM</option>
-                                                         </select> -->
-                                                          <!-- <td>{{showtime.TheaterName}}</td> -->
-                                                          <!-- <td>{{time.showName}}</td> -->
-                                                          <td>{{st.showTiming}}</td>
-                                                     <td><button ng-click="removeShow(st)" class="btn btn-danger">Remove</button></td>
-                                                          <td><button ng-click="editShow(st)" class="btn btn-primary">Edit</button></td>
-                                                      </tr>
-                                                  </tbody>
-                                                </table></li>
-                                              </ul>
-
-
-                                              <li class="collapsed" data-target="#citydetail" data-toggle="collapse">
-
-                                                <i class=""><img src="http://skyrites.com/projects/spaciux/images/fa-user3.png" alt=""></i> <strong style="color:black">Add City</strong> <span class="arrow"></span></a>
-                                            </li>
-
-                                            <ul id="citydetail" class="sub-menu collapse">
-                                              <li class="active">	<table class="table">
-                                                            <thead>
-                                                                <tr>
+<ul id="showdetail" class="sub-menu collapse">
+<li class="active">	<table class="table">
+<thead>
+<tr>
+    <th>Show Timing</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><input ng-model="showtime.showTiming "/></td>
+<td><button ng-click="addShow()" class="btn btn-primary">Add Time</button></td>
+  <td><button ng-click="updateShow()" class="btn btn-primary">Update</button></td>
+</tr>
+<tr ng-repeat="st in showtimelist">
+  <!-- <select>
+   <option value="3.00PM">3.00PM</option>
+   <option value="6.00PM">6.00PM</option>
+   <option value="10.00PM">10.00PM</option>
+   <option value="12.00PM">12.00PM</option>
+   </select> -->
+   <!-- <td>{{showtime.TheaterName}}</td> -->
+   <!-- <td>{{time.showName}}</td> -->
+   <td>{{st.showTiming}}</td>
+ <td><button ng-click="removeShow(st)" class="btn btn-danger">Remove</button></td>
+   <td><button ng-click="editShow(st)" class="btn btn-primary">Edit</button></td>
+ </tr>
+ </tbody>
+ </table></li>
+ </ul>
+<li class="collapsed" data-target="#citydetail" data-toggle="collapse">
+  <i class=""><img src="http://skyrites.com/projects/spaciux/images/fa-user3.png" alt=""></i> <strong style="color:black">Add City</strong> <span class="arrow"></span></a>
+</li>
+<ul id="citydetail" class="sub-menu collapse">
+<li class="active">	<table class="table">
+<thead>
+<tr>
                                                                     <!-- <th>City ID</th> -->
-                                                                    <th>City Name</th>
+<th>City Name</th>
+  </tr>
+</thead>
+<tbody>
+<tr>
+                                                                 <!-- cityName -->
+<td><input ng-model="cities.cityName"/></td>
 
-
-                                                              </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <tr>
-
-                                                                   <!-- <td><input ng-model="city.CityID"/></td> -->
-                                                                   <!-- cityName -->
-                                                                    <td><input ng-model="cities.cityName"/></td>
-
-                                                                  <td><button ng-click="addCity()" class="btn btn-primary">Add City</button></td>
-                                                                  <td><button ng-click="updateCity()" class="btn btn-primary">Update</button></td>
-
-                                                                </tr>
-                                                                <tr ng-repeat="cty in citieslist">
+<td><button ng-click="addCity()" class="btn btn-primary">Add City</button></td>
+<td><button ng-click="updateCity()" class="btn btn-primary">Update</button></td>
+</tr>
+<tr ng-repeat="cty in citieslist">
                                                                     <!-- <td>{{city.CityID}}</td> -->
-                                                                    <td>{{cty.cityName}}</td>
+<td>{{cty.cityName}}</td>
 
-                                                               <td><button ng-click="removeCity(cty)" class="btn btn-danger">Remove</button></td>
-                                                                    <td><button ng-click="editCity(cty)" class="btn btn-primary">Edit</button></td>
-                                                                </tr>
-                                                            </tbody>
-                                                          </table></li>
-                                                        </ul>
+<td><button ng-click="removeCity(cty)" class="btn btn-danger">Remove</button></td>
+<td><button ng-click="editCity(cty)" class="btn btn-primary">Edit</button></td>
+</tr>
+</tbody>
+</table></li>
+</ul>
+<li class="collapsed" data-target="#theatredetail" data-toggle="collapse">
+  <!-- <a href="#"> -->
+<i class=""><img src="http://skyrites.com/projects/spaciux/images/fa-user2.png" alt=""></i> <strong style="color:black">Add Theatres</strong> <span class="arrow"></span></a>
+</li>
+<ul id="theatredetail" class="sub-menu collapse">
+<li class="active">	<table class="table">
+<thead>
+<tr>
+<!-- <th>Theater ID</th> -->
+<th>Theatre Name</th>
+<th>Theatre Location</th>
+<th>Theatre ShowTiming</th>
 
 
-                                                                                          <li class="collapsed" data-target="#theatredetail" data-toggle="collapse">
-                                                                                          <!-- <a href="#"> -->
-                                                                                            <i class=""><img src="http://skyrites.com/projects/spaciux/images/fa-user2.png" alt=""></i> <strong style="color:black">Add Theatres</strong> <span class="arrow"></span></a>
-                                                                                        </li>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <!-- <td><input ng-model="thtre.Theater ID"/></td> -->
+   <td><input ng-model="thtrs.theatreName"/></td>
+   <!-- <td><input ng-model="thtrs.theatreCity"/></td> -->
+   <!-- <td><input ng-model="thtrs.theatreShowTiming"/></td> -->
+   <!-- <select>
+    <option value="3.00PM">3.00PM</option>
+    <option value="6.00PM">6.00PM</option>
+    <option value="10.00PM">10.00PM</option>
+    <option value="12.00PM">12.00PM</option>
+    </select> -->
+   <!-- <td><input ng-model="thtrs.theatrelocation"/></td> -->
+   <td>
+<div class="form-group">
+<select class="form-control" ng-model="thtrs.theatrelocation">
+<option ng-repeat="cty in citieslist">{{cty.cityName}}</option>
+ </select></div></td>
+  <td>  <div class="form-group">
+    <select class="selectpicker" ng-model="thtrs.theatreShowTiming" multiple="multiple">
+      <option ng-repeat="st in showtimelist">{{st.showTiming}}</option>
+      </select></div></td>
+<!-- <td>
+  <div class="form-group">
+<select class="form-control" ng-model="thtrs.theatreShowTiming">
+<option ng-repeat="st in showtimelist">{{st.showTiming}}</option>
+</select></td> -->
+ <td><button ng-click="addThrr()" class="btn btn-primary">Add Theatre</button></td>
+ <td><button ng-click="updateThrr()" class="btn btn-primary">Update</button></td>
 
-                                                                                        <ul id="theatredetail" class="sub-menu collapse">
-                                                                                          <li class="active">	<table class="table">
-                                                                                                        <thead>
-                                                                                                            <tr>
-                                                                                                                <!-- <th>Theater ID</th> -->
-                                                                                                                <th>Theatre Name</th>
-                                                                                                                <th>Theatre City</th>
-                                                                                                                <th>Theatre ShowTiming</th>
-                                                                                                                <th>Ticket Price</th>
+ </tr>
+ <tr ng-repeat="t in thtrslist">
+     <!-- <td>{{thtre.Theater ID}}</td> -->
+     <!-- <td>{{thtres.theatreName}}</td> -->
+     <!-- <td>{{thtres.theatreCity}}</td> -->
+     <td>{{t.theatreName}}</td>
+     <td>{{t.theatreShowTiming}}</td>
+     <td>{{t.theatrelocation}}</td>
 
-                                                                                                          </tr>
-                                                                                                        </thead>
-                                                                                                        <tbody>
-                                                                                                            <tr>
 
-                                                                                                               <!-- <td><input ng-model="thtre.Theater ID"/></td> -->
-                                                                                                                <td><input ng-model="thtrs.theatreName"/></td>
-                                                                                                                <td><input ng-model="thtrs.theatreCity"/></td>
-                                                                                                                <td><input ng-model="thtrs.theatreShowTiming"/></td>
-                                                                                                                <!-- <select>
-                                                                                                                 <option value="3.00PM">3.00PM</option>
-                                                                                                                 <option value="6.00PM">6.00PM</option>
-                                                                                                                 <option value="10.00PM">10.00PM</option>
-                                                                                                                 <option value="12.00PM">12.00PM</option>
-                                                                                                                 </select> -->
-                                                                                                                <td><input ng-model="thtrs.theatreTicketPrice"/></td>
+     <td><button ng-click="editThrr(t)" class="btn btn-primary">Edit</button></td>
+    <td><button ng-click="removeThrr(t)" class="btn btn-danger">Remove</button></td>
+ </tr>
+ </tbody>
+ </table></li></ul>
+ <li class="collapsed active" data-target="#moviedetail" data-toggle="collapse">
+   <i class=""><img src="http://skyrites.com/projects/spaciux/images/fa-user1.png" alt=""></i>
+   <!-- <span class="glyphicon glyphicon-film">  -->
+     <strong style="color:black">Add Movies</strong> <span class="arrow"></span>
+ </li>
 
-                                                                                                              <td><button ng-click="addTr()" class="btn btn-primary">Add Theatre</button></td>
-                                                                                                              <td><button ng-click="updateTr()" class="btn btn-primary">Update</button></td>
-
-                                                                                                            </tr>
-                                                                                                            <tr ng-repeat=" thtres in thtrslist">
-                                                                                                                <!-- <td>{{thtre.Theater ID}}</td> -->
-                                                                                                                <td>{{thtres.theatreName}}</td>
-                                                                                                                <td>{{thtres.theatreCity}}</td>
-                                                                                                                <td>{{thtres.theatreShowTiming}}</td>
-                                                                                                                <td>{{thtres.theatreTicketPrice}}</td>
-
-                                                                                                               <td><button ng-click="removeTr(thtres)" class="btn btn-danger">Remove</button></td>
-                                                                                                                <td><button ng-click="editTr(thtres)" class="btn btn-primary">Edit</button></td>
-                                                                                                            </tr>
-                                                                                                        </tbody>
-                                                                                                      </table></li></ul>
-
-                                                                                                      <li class="collapsed active" data-target="#moviedetail" data-toggle="collapse">
-                                                                                                        <i class=""><img src="http://skyrites.com/projects/spaciux/images/fa-user1.png" alt=""></i>
-                                                                                                        <!-- <span class="glyphicon glyphicon-film">  -->
-                                                                                                          <strong style="color:black">Add Movies</strong> <span class="arrow"></span>
-                                                                                                      </li>
 
 <ul id="moviedetail" class="sub-menu collapse fade">
 <li class="active">
-<table class="table">
-<thead>
+  <form class="container" class="table">
+<table>
+  <tbody>
 <tr>
+<!-- <td>Movie Name</td><td><input ng-model="movi.moviTitle" placeholder="Title"/></td> -->
+<!-- <table class="table">
+<thead>
+<tr> -->
 <!-- <th>MOVIE ID</th> -->
-<th>MOVIE TITLE</th>
+<!-- <th>MOVIE TITLE</th> -->
 <!-- <th>MOVIE YEAR</th> -->
 <!-- <th>MOVIE TYPE</th>
 
@@ -546,17 +536,21 @@
 <td><input ng-model="movieObj.Year" /></td> -->
 <!-- <td><button ng-click="getData()" class="btn btn-primary">GET</button></td>
 <td><button ng-click="addData()" class="btn btn-primary">ADD</button></td> -->
-
+<!--
  </tr>
 </tbody>
 
 <tbody>
-<tr>
+<tr> -->
 
 
 <!-- <td><input ng-model="movie.movieID"/></td> -->
+<tr>
+<th>moviename</th>
+<th>movieyear</th>
+</tr>
 <td><input ng-model="mov.movieTitle"/></td>
-<!-- <td><input ng-model="mov.movieYear"/></td> -->
+<td><input ng-model="mov.movieYear"/></td>
 <!-- <td><input ng-model="mov.movieLanguage"/></td>
 <td><input ng-model="mov.moviePoster"/></td>
 <td><input ng-model="mov.movieGenre"/></td>
@@ -569,15 +563,15 @@
 <!-- <td><button ng-click="updatem()" class="btn btn-primary">Update</button></td> -->
 
 </tr>
-<tr ng-repeat="m in movList">
+<tr ng-repeat="m in moviList">
 <!-- <td>{{movie.movieID}}</td> -->
 <td>{{m.movieTitle}}</td>
 <td>{{m.movieYear}}</td>
 <td>{{m.movieLanguage}}</td>
-<td>{{m.moviePoster}}</td>
-<td>{{m.movieGenre}}</td>
+<td><img src="{{m.moviePoster}}" style="width:200px;height:200px;"></td>
+<!-- <td>{{m.movieGenre}}</td>
 <td>{{m.movieDirector}}</td>
-<td>{{m.movieActors}}</td>
+<td>{{m.movieActors}}</td> -->
 <!-- <td>{{movie.movietype}}</td>
 <td>{{movie.moviedirector}}</td> -->
 
@@ -588,50 +582,93 @@
 
 </table></li></ul>
 
-                                                                                                          <!-- <li><a href="#">Carpenter</a></li> -->
-                                                                                                      </ul>
 
-                                    <!-- <li><a href="#">Full Interior Service</a></li
-                                <li class="collapsed" data-target="#new" data-toggle="collapse">
-                                  <a href="#"><i class=""><img src="http://skyrites.com/projects/spaciux/images/fa-user3.png" alt=""></i> <strong>Ratings </strong>  <span class="arrow"></span></a>
-                                </li>
-                                <ul id="new" class="sub-menu collapse">
-                                  <li class="active">	<table class="table">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Theater ID</th>
-                                                        <th>Theater Name</th>
-                                                        <th>City</th>
-                                                        <th>ShowTiming</th>
-                                                  </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                       <td><input ng-model="thtre.theaterID"/></td>
-                                                        <td><input ng-model="thtre.theaterName"/></td>
-                                                        <td><input ng-model="thtre.location"/></td>
-                                                        <td><input ng-model="thtre.showTime"/></td>
-                                                      <td><button ng-click="addTheater()" class="btn btn-primary">Add Movie</button></td>
-                                                      <td><button ng-click="updateTheater()" class="btn btn-primary">Update</button></td>
-                                                    </tr>
-                                                    <tr ng-repeat=" thtre in theaterlist">
-                                                        <td>{{thtre.theaterID}}</td>
-                                                        <td>{{thtre.theaterName}}</td>
-                                                        <td>{{thtre.location}}</td>
-                                                        <td>{{thtre.showTime}}</td>
-                                                       <td><button ng-click="removeTheater(thtre)" class="btn btn-danger">Remove</button></td>
-                                                        <td><button ng-click="editTheater(thtre)" class="btn btn-primary">Edit</button></td>
-                                                    </tr>
-                                                </tbody>
-                                              </table></li>
-                                            </ul>
-                                 <li class="collapsed" data-target="#filterProWindows" data-toggle="collapse">
-                                  <a href="#"><i class=""><img src="http://skyrites.com/projects/spaciux/images/fa-user5.png" alt=""></i> <strong>Awards & Recognitions </strong>  </a>
-                                  </li>
-                            </ul>
-                     </div>
-                </div>
-            </div>
+<li class="collapsed" data-target="#mappingdetail" data-toggle="collapse">
+<i class=""><img src="http://skyrites.com/projects/spaciux/images/fa-user5.png" alt=""></i> <strong style="color:black">Add MAPPING</strong> <span class="arrow"></span></a>
+</li>
+<ul id="mappingdetail" class="sub-menu collapse fade">
+<li class="active">
+  <form class="container" class="table">
+<table>
+  <tbody>
+<tr>
+  <th>Movie</th>
+  <th>City</th>
+  <th>Theater</th>
+   <th>Show time</th>
+  <th>From</th>
+  <th>To</th>
+
+
+</tr>
+</thead>
+<tbody>
+<tr>
+
+   <!-- <td><input ng-model="mapp.Moviename"/></td> -->
+   <!-- <td><input ng-model="mapp.Theatrelocation"/></td>
+   <td><input ng-model="mapp.Theatrename"/></td>
+   <td><input ng-model="mapp.Showtiming"/></td>
+   <td><input ng-model="mapp.Fromdate"/></td>
+   <td><input ng-model="mapp.Todate"/></td>
+   <td><input ng-model="mapp.Ticketprice"/></td> -->
+
+   <td>
+<div class="form-group">
+
+<select class="form-control" ng-model="mapp.Moviename">
+<option ng-repeat="m in moviList">{{m.movieTitle}}</option>
+ </select></div></td>
+ <td>
+   <div class="form-group">
+<select class="form-control" ng-model="mapp.Theatrelocation">
+<option ng-repeat="cty in citieslist">{{cty.cityName}}</option>
+</select></div></td>
+<!-- <div class="form-group">
+<select class="form-control" ng-model="mapp.theatrelocation">
+<option ng-repeat="cty in citieslist">{{cty.cityName}}</option>
+</select></div></td> -->
+<td>
+<div class="form-group">
+<select id="thrname" class="form-control" ng-model="mapp.Theatrename">
+<option ng-repeat="t in thtrslist |filter:mapp.Theatrename">{{t.theatreName}}</option>
+</select></div></td>
+<!-- <td>
+<div class="form-group">
+<select id="thname" class="form-control" ng-model="map.Hall" >
+<option ng-repeat="th in thtrelist |filter:map.City">{{th.TheaterName}}</option>
+</select></div></td> -->
+<td>
+<select ng-model="mapp.Showtiming"><option ng-repeat="t in thtrslist | filter:mapp.Theatrelocation" value="{{t.theatreShowTiming}}">{{t.theatreShowTiming}}</option>
+</td>
+<td><input type="date" ng-model="map.From"></td>
+<td><input type="date" ng-model="map.To"></td>
+<!-- <td>
+  <div class="form-group">
+<select class="form-control" ng-model="thtrs.theatreShowTiming">
+<option ng-repeat="st in showtimelist ">{{st.showTiming}}</option>
+</select></td> -->
+ <td><button ng-click="addmps()" class="btn btn-primary">Add Movies</button></td>
+ <td><button ng-click="updatemps()" class="btn btn-primary">Update</button></td>
+
+ </tr>
+ <tr ng-repeat=" mpps in mapplist">
+     <!-- <td>{{thtre.Theater ID}}</td> -->
+     <td>{{mpps.Moviename}}</td>
+     <td>{{mpps.Theatrelocation}}</td>
+     <td>{{mpps.Theatrename}}</td>
+     <td>{{mpps.Showtiming}}</td>
+     <td>{{mpps.Fromdate}}</td>
+     <td>{{mpps.Todate}}</td>
+
+    <td><button ng-click="removemps(mpps)" class="btn btn-danger">Remove</button></td>
+     <td><button ng-click="editmps(mpps)" class="btn btn-primary">Edit</button></td>
+ </tr>
+ </tbody>
+ </table></li></ul>
+
+</ul>
+
              <!-- left menu end -->
 
 

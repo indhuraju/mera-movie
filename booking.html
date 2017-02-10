@@ -1,0 +1,109 @@
+
+
+
+  <div class="row">
+
+<div class="col-sm-5">
+
+         <input type="text" class="form-control" placeholder="Search" ng-model="searching"/>
+ <div class="col-sm-2" style="margin-left: 97%;margin-top: -34px">
+   <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" style="color:black"></span></button>
+       </div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-5">
+<ul class="list-group">
+<li ng-show="searching" ng-repeat="m in moviList| filter:searching" class="list-group-item"> {{m.movieTitle}}</li>
+</ul>
+</div>
+</div>
+
+
+
+
+
+              <h2>Select The Movie</h2>
+
+              <select ng-model="myVar">
+                <option value="all">All
+                <option value="romance">Romance
+                <option value="action">Action
+                  <option value="comedy">Comedy
+               <option value="horror">Horror
+
+              </select>
+
+              <div ng-switch="myVar">
+              <div ng-switch-when="all" >
+                <div ng-repeat="m in moviList">
+                  <img src="{{m.moviePoster}}" style="width:140px;height:140px;">
+                  <td>{{m.movieTitle}}</td>
+                  <td>{{m.movieYear}}</td>
+                  <td>{{m.movieLanguage}}</td>
+              <!-- <span class ="movie Title">{{m.movieTitle}}</span>
+              <span class ="movie Year">{{m.movieYear}}</span>
+               <span class = "movie Language">{{m.movieLanguage}}</span> -->
+ <button ng-click = "bookingmovie(m)" class="button  btn btn-primary">Book</button>
+                </div></div>
+                <div ng-switch-when="romance" >
+                  <div ng-repeat="m in moviList|filter:'romance'">
+                    <img src="{{m.moviePoster}}" style="width:140px;height:140px;">
+                    <td>{{m.movieTitle}}</td>
+                    <td>{{m.movieYear}}</td>
+                    <td>{{m.movieLanguage}}</td>
+              <!-- <button ng-click = "bookingmovie(m)" class="button  btn btn-primary">Book</button> -->
+              <!-- <button ng-click=bookingmovie(m)>Click Me!</button>
+
+<div ng-show="showMe">
+    <h1>Menu:</h1>
+    <div>Pizza</div>
+    <div>Pasta</div>
+    <div>Pesce</div>
+</div> -->
+
+Book: <input type="checkbox" ng-model="checked" aria-label="Toggle ngShow"><br />
+<div class="check-element animate-show-hide" ng-show="checked">
+  I show up when your checkbox is checked.
+</div>
+<!-- <input type="checkbox" ng-model="myVar">
+
+<div ng-hide="myVar">
+<h2>Welcome to booking page</h2>
+<form>
+  <label>
+
+</div> -->
+
+
+        </div></div>
+
+                  <div ng-switch-when="action" >
+                      <div ng-repeat="m in moviList|filter:'action'">
+                        <img src="{{m.moviePoster}}" style="width:140px;height:140px;">
+      {{m.movieTitle}}
+      {{m.movieYear}}
+      {{m.movieLanguage}}
+       <button ng-click = "bookingmovie(m)" class="button  btn btn-primary">Book</button>
+
+                      </div></div>
+                      <div ng-switch-when="comedy" >
+                          <div ng-repeat="m in moviList|filter:'comedy'">
+                            <img src="{{m.moviePoster}}" style="width:140px;height:140px;">
+          {{m.movieTitle}}
+          {{m.movieYear}}
+          {{m.movieLanguage}}
+           <button ng-click = "bookingmovie(m)" class="button  btn btn-primary">Book</button>
+
+                          </div></div>
+                          <div ng-switch-when="horror" >
+                              <div ng-repeat="m in moviList|filter:'horror'">
+                                <img src="{{m.moviePoster}}" style="width:140px;height:140px;">
+              {{m.movieTitle}}
+              {{m.movieYear}}
+              {{m.movieLanguage}}
+               <button ng-click = "bookingmovie(m)" class="button  btn btn-primary">Book</button>
+
+                              </div></div>
+
+                            </div>

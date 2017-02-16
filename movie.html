@@ -1,245 +1,5 @@
-<style>
-img{
+<div class="container">
 
-}
-/*
-*,*:before,*:after {
-  box-sizing: border-box;
-}
-html {
-  font-size: 16px;
-}
-
-.plane {
-  margin: 20px auto;
-  max-width: 300px;
-}
-
-.cockpit {
-  height: 250px;
-  position: relative;
-  overflow: hidden;
-  text-align: center;
-  border-bottom: 5px solid #d8d8d8;
-  &:before {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 500px;
-    width: 100%;
-    border-radius: 50%;
-    border-right: 5px solid #d8d8d8;
-    border-left: 5px solid #d8d8d8;
-  }
-  h1 {
-    width: 60%;
-    margin: 100px auto 35px auto;
-  }
-}
-
-.exit {
-  position: relative;
-  height: 50px;
-  &:before,
-  &:after {
-    content: "EXIT";
-    font-size: 14px;
-    line-height: 18px;
-    padding: 0px 2px;
-    font-family: "Arial Narrow", Arial, sans-serif;
-    display: block;
-    position: absolute;
-    background: green;
-    color: white;
-    top: 50%;
-    transform: translate(0, -50%);
-  }
-  &:before {
-    left: 0;
-  }
-  &:after {
-    right: 0;
-  }
-}
-
-.fuselage {
-  border-right: 5px solid #d8d8d8;
-  border-left: 5px solid #d8d8d8;
-}
-
-ol {
-  list-style :none;
-  padding: 0;
-  margin: 0;
-}
-
-.row {
-
-}
-
-.seats {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-}
-
-.seat {
-  display: flex;
-  flex: 0 0 14.28571428571429%;
-  padding: 5px;
-  position: relative;
-  &:nth-child(3) {
-    margin-right: 14.28571428571429%;
-  }
-  input[type=checkbox] {
-    position: absolute;
-    opacity: 0;
-  }
-  input[type=checkbox]:checked {
-    + label {
-      background: #bada55;
-      -webkit-animation-name: rubberBand;
-          animation-name: rubberBand;
-      animation-duration: 300ms;
-      animation-fill-mode: both;
-    }
-  }
-  input[type=checkbox]:disabled {
-    + label {
-      background: #dddddd;
-      text-indent: -9999px;
-      overflow: hidden;
-      &:after {
-        content: "X";
-        text-indent: 0;
-        position: absolute;
-        top: 4px;
-        left: 50%;
-        transform: translate(-50%, 0%);
-      }
-      &:hover {
-        box-shadow: none;
-        cursor: not-allowed;
-      }
-    }
-  }
-  label {
-    display: block;
-    position: relative;
-    width: 100%;
-    text-align: center;
-    font-size: 14px;
-    font-weight: bold;
-    line-height: 1.5rem;
-    padding: 4px 0;
-    background: #F42536;
-    border-radius: 5px;
-    animation-duration: 300ms;
-    animation-fill-mode: both;
-
-    &:before {
-      content: "";
-      position: absolute;
-      width: 75%;
-      height: 75%;
-      top: 1px;
-      left: 50%;
-      transform: translate(-50%, 0%);
-      background: rgba(255,255,255,.4);
-      border-radius: 3px;
-    }
-    &:hover {
-      cursor: pointer;
-      box-shadow: 0 0 0px 2px #5C6AFF;
-    }
-
-  }
-}
-
-@-webkit-keyframes rubberBand {
-  0% {
-    -webkit-transform: scale3d(1, 1, 1);
-            transform: scale3d(1, 1, 1);
-  }
-
-  30% {
-    -webkit-transform: scale3d(1.25, 0.75, 1);
-            transform: scale3d(1.25, 0.75, 1);
-  }
-
-  40% {
-    -webkit-transform: scale3d(0.75, 1.25, 1);
-            transform: scale3d(0.75, 1.25, 1);
-  }
-
-  50% {
-    -webkit-transform: scale3d(1.15, 0.85, 1);
-            transform: scale3d(1.15, 0.85, 1);
-  }
-
-  65% {
-    -webkit-transform: scale3d(.95, 1.05, 1);
-            transform: scale3d(.95, 1.05, 1);
-  }
-
-  75% {
-    -webkit-transform: scale3d(1.05, .95, 1);
-            transform: scale3d(1.05, .95, 1);
-  }
-
-  100% {
-    -webkit-transform: scale3d(1, 1, 1);
-            transform: scale3d(1, 1, 1);
-  }
-}
-
-@keyframes rubberBand {
-  0% {
-    -webkit-transform: scale3d(1, 1, 1);
-            transform: scale3d(1, 1, 1);
-  }
-
-  30% {
-    -webkit-transform: scale3d(1.25, 0.75, 1);
-            transform: scale3d(1.25, 0.75, 1);
-  }
-
-  40% {
-    -webkit-transform: scale3d(0.75, 1.25, 1);
-            transform: scale3d(0.75, 1.25, 1);
-  }
-
-  50% {
-    -webkit-transform: scale3d(1.15, 0.85, 1);
-            transform: scale3d(1.15, 0.85, 1);
-  }
-
-  65% {
-    -webkit-transform: scale3d(.95, 1.05, 1);
-            transform: scale3d(.95, 1.05, 1);
-  }
-
-  75% {
-    -webkit-transform: scale3d(1.05, .95, 1);
-            transform: scale3d(1.05, .95, 1);
-  }
-
-  100% {
-    -webkit-transform: scale3d(1, 1, 1);
-            transform: scale3d(1, 1, 1);
-  }
-}
-
-.rubberBand {
-  -webkit-animation-name: rubberBand;
-          animation-name: rubberBand;
-}*/
-</style>
-
-    <div class="container">
       <h2> BOOKING DETAIL'S</h2>
 <img src="{{m.moviePoster}}" style="width:200px;height:200px;">
     <div class="form-group">
@@ -254,100 +14,81 @@ ol {
       <label for="date">Reservation Date:</label>
       <input type="date" name="Reservation" min="1" max="20" >
   </div>
-  <!-- <div class="table-responsive"> -->
-  <!-- <table class="table">
-<thead>
-  <tr>Seating</tr>
-  <td>1</td>
-  <td>2</td>
-  <td>3</td>
-  <td>4</td>
-  <td>5</td>
-  <td>6</td>
-</thead>
-<tbody>
-       <div style="margin-left: 30%;"><h4>SEAT: GOLD</h4></div>
-    <td><img src= "../img/resrc/seats.jpg">A1</td>
-    <td><img src= "../img/resrc/seats.jpg">B1</td>
-    <td><img src= "../img/resrc/seats.jpg">C1</td>
-    <td><img src= "../img/resrc/seats.jpg">D1</td>
-    <td><img src= "../img/resrc/seats.jpg">E1</td>
-    <td><img src= "../img/resrc/seats.jpg">F1</td>
-
-
-</table>
-</div> -->
-<div class="table-responsive" style="margin-top: 3%;">
-    <div style="text-align: center;"><h2>BOOKING SEATS</h2></div>
-</div>
-    <table class="seatLayout" >
-        <!-- <div class="legend">
-           <div> <img src="../resrc/images/seat1.jpg">Available</div>
-          <div>  <img src="../resrc/images/seat.jpg"> Booked</div>
-          <div> <img src="../resrc/images/seat2.jpg">Selected</div>
-      </div> -->
-      <div style="margin-left: 23%;"><h4>GOLD</h4></div>
-        <tbody>
-          <tbody>
-          <tr class="tablestyle">
-                <td class="padding-bottom"></td>
-                <td class="padding-bottom" ng-repeat="col in cols track by $index" ng-bind="col"></td>
-            </tr>
-            <tr class="tablestyle" ng-repeat="row in rows">
-                <td class="padding-right" ng-bind="row"></td>
-                <td class="seat" ng-repeat="col in cols" ng-click="seatClicked(row + col)" ng-switch on="getStatus(row + col)" style="padding: 5px 5px 5px 5px;">
-                    <img ng-switch-when="selected" src=".../img/resrc/seats.jpg">
-                    <img ng-switch-when="reserved" src=".../img/resrc/seats.jpg">
-                    <img ng-switch-default src=".../img/resrc/seats.jpg">
-                </td>
-            </tr>
-        </tbody>
-      </table>
-        <!-- <div style="margin-left: 24%;"><h4>PLATINUM</h4></div>
-        <table class="seatLayout" >
-        <tbody>
-          <tr class="tablestyle">
-                <td class="padding-bottom"></td>
-                <td class="padding-bottom" ng-repeat="col in cols track by $index" ng-bind="col"></td>
-            </tr>
-            <tr class="tablestyle" ng-repeat="row in rows1">
-                <td class="padding-right" ng-bind="row"></td>
-                <td class="seat" ng-repeat="col in cols1" ng-click="seatClicked(row + col)" ng-switch on="getStatus(row + col)" style="padding: 5px 5px 5px 5px;">
-                    <img ng-switch-when="selected" src="../resrc/seats.jpg">
-                    <img ng-switch-when="reserved" src="../resrc/seats.jpg">
-                    <img ng-switch-default src="../resrc/seats.jpg">
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <div style="margin-left: 24%;"><h4>SILVER</h4></div>
-    <table class="seatLayout" >
+  <div class="table-responsive"style="margin-top: 6%">
+    <table class="table">
+  <table class="seatLayout"style="margin-top: 2%;
+    margin-left: 10%;">
+    <div style="background-color:#20098A;width: 36%;margin-left: 10%;">
+    <h4 style="color:#E6CC25;text-align:center">BOOKING SEATS</h4>
+    <h4 style="background-color:#20098A;color:#E6CC25;text-align:center">GOLD</h4>
+  </div>
     <tbody>
-      <tr class="tablestyle">
-            <td class="padding-bottom"></td>
-            <td class="padding-bottom" ng-repeat="col in cols track by $index" ng-bind="col"></td>
+      <tr>
+            <td></td>
+            <td ng-repeat="col in cols track by $index" ng-bind="col"></td>
         </tr>
-        <tr class="tablestyle" ng-repeat="row in rows2">
-            <td class="padding-right" ng-bind="row"></td>
-            <td class="seat" ng-repeat="col in cols2" ng-click="seatClicked(row + col)" ng-switch on="getStatus(row + col)" style="padding: 5px 5px 5px 5px;">
-                <img ng-switch-when="selected" src="../resrc/seats.jpg">
-                <img ng-switch-when="reserved" src="../resrc/seats.jpg">
-                <img ng-switch-default src"../resrc/seats.jpg">
+        <tr class="tablestyle" ng-repeat="row in rows">
+            <td ng-bind="row"></td>
+            <td ng-repeat="col in cols" ng-click="seatClicked(row + col)" ng-switch on="getStatus(row + col)" style="padding: 5px 5px 5px 5px;">
+                <img ng-switch-when="selected" src="../img/resrc/seat.jpg" style="width:30px;height:30px;">
+                <!-- <img ng-switch-when="reserved" src="img/seatbook.png" style="width:30px;height:30px;"> -->
+                <img ng-switch-default src="../img/resrc/seat.jpg" style="width:30px;height:30px;">
             </td>
+            <img src="../img/resrc/seat.jpg" style="width:30px;height:30px;">Available
+            <img src="../img/resrc/sts.jpg" style="width:30px;height:30px;">Reserved
         </tr>
     </tbody>
-    </table> -->
+</table>
 
-<ol>
-   <li class="seat">
-     <input type="checkbox" id="" />
-     <label for="">AVAILABLE</label>
-   </li>
-   <li class="seat">
-     <input type="checkbox" disabled id="" />
-     <label for="">BOOKED</label>
-   </li>
- </ol>
+<table class="seatLayout"style="margin-top: 2%;
+  margin-left: 10%;">
+  <div style="background-color:#20098A;width: 36%;margin-left: 10%;">
+  <h4 style="color:#E6CC25;text-align:center">BOOKING SEATS</h4>
+  <h4 style="background-color:#20098A;color:#E6CC25;text-align:center">PLATINUM</h4>
+</div>
+  <tbody>
+    <tr>
+          <td></td>
+          <td ng-repeat="col in cols track by $index" ng-bind="col"></td>
+      </tr>
+      <tr class="tablestyle" ng-repeat="row in rows1">
+          <td ng-bind="row"></td>
+          <td ng-repeat="col in cols1" ng-click="seatClicked(row + col)" ng-switch on="getStatus(row + col)" style="padding: 5px 5px 5px 5px;">
+              <img ng-switch-when="selected" src="../img/resrc/seat.jpg" style="width:30px;height:30px;">
+              <!-- <img ng-switch-when="reserved" src="img/seatbook.png" style="width:30px;height:30px;"> -->
+              <img ng-switch-default src="../img/resrc/seat.jpg" style="width:30px;height:30px;">
+          </td>
+
+          <img src="../img/resrc/seat.jpg" style="width:30px;height:30px;">Available
+          <img src="../img/resrc/sts.jpg" style="width:30px;height:30px;">Reserved
+      </tr>
+  </tbody>
+</table>
+
+<table class="seatLayout"style="margin-top: 2%;
+  margin-left: 10%;">
+  <div style="background-color:#20098A;width: 36%;margin-left: 10%;">
+  <h4 style="color:#E6CC25;text-align:center">BOOKING SEATS</h4>
+  <h4 style="background-color:#20098A;color:#E6CC25;text-align:center">SILVER</h4>
+</div>
+  <tbody>
+    <tr>
+          <td></td>
+          <td ng-repeat="col in cols track by $index" ng-bind="col"></td>
+      </tr>
+      <tr class="tablestyle" ng-repeat="row in rows1">
+          <td ng-bind="row"></td>
+          <td ng-repeat="col in cols1" ng-click="seatClicked(row + col)" ng-switch on="getStatus(row + col)" style="padding: 5px 5px 5px 5px;">
+              <img ng-switch-when="selected" src="../img/resrc/seat.jpg" style="width:30px;height:30px;">
+              <!-- <img ng-switch-when="reserved" src="img/seatbook.png" style="width:30px;height:30px;"> -->
+              <img ng-switch-default src="../img/resrc/seat.jpg" style="width:30px;height:30px;">
+          </td>
+          <img src="../img/resrc/seat.jpg" style="width:30px;height:30px;">Available
+          <img src="../img/resrc/sts.jpg" style="width:30px;height:30px;">Reserved
+      </tr>
+  </tbody>
+</table>
+</div>
  <div class="form-group">
    <label for="seat">No.of.seats:</label>
  <input type="number" name="quantity" min="1" max="20">
@@ -373,55 +114,3 @@ ol {
  <button type="submit" class="btn btn-default">Submit</button>
  </form>
 </div>
-                            <!-- <div class="container"> -->
-
-
-
-                            <!-- <img src="{{movieinfo.moviPoster}}" style="width:370px;height:400px;float: left;">
-
-
-                            <div class="table-responsive">
-                              <table class="table">
-                              <tr>
-                                <td><b>Movie title</b></td>
-                              <td> <b>{{movieinfo.moviTitle}} </b></td>
-                            </tr>
-
-                            <tr>
-                              <td><b>Select City</b></td>
-                              <td><select ng-model="book.city">
-                                    <option ng-repeat="map in maplist">{{map.City}}</option>
-                              </select></td>
-                            </tr>
-                            <tr>
-                              <td><b>Select Theater</b></td>
-                              <td><select ng-model="book.hall">
-                                    <option ng-repeat="map in maplist">{{map.Hall}}</option>
-                              </select></td>
-                            </tr>
-                            <tr>
-                              <td><b>Select Date</td>
-                              <td> <input type="date" ng-model="book.date"/></td>
-                             </tr>
-                             <tr>
-                               <td><b>Select Show Time</b></td>
-                               <td>
-                              <select ng-model="book.show">
-                                    <option ng-repeat="map in maplist">{{map.ShowTime}}</option>
-                              </select></td>
-                            </tr>
-                            <tr>
-                              <td><b>Amount</b></td>
-                              <td>
-                             <select ng-model="book.Amount">
-                                    <option>50</option>
-                                   <option>100</option>
-                                   <option>150</option>
-                             </select></td>
-
-                            </tr>
-                            </table>
-
-                            </div>
-
-                            </div> -->

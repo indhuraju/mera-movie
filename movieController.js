@@ -1,21 +1,71 @@
-var selected=[];
-  var reserved=[];
+
 'use strict';
 
 module.exports = function($scope, $http, $log, $rootScope) {
   $scope.m = $rootScope.bookedMovie;
     console.log($scope.m);
 
+//     var refresh = function () {
+//           $http.get('/map/map').success(function (response) {
+//               console.log('READ IS SUCCESSFUL');
+//               $scope.mppslist = response;
+//               $scope.mpps = "";
+//           });
+//       };
+// refresh();
 
- var refreshmps = function () {
-       $http.get('/map/map').success(function (response) {
-           console.log('READ IS SUCCESSFUL');
-           $scope.mappinglist = response;
-           $scope.mapping = "";
-       });
-   };
+var refreshmps = function () {
+      $http.get('/map/map').success(function (response) {
+          console.log('READ THEATRE SUCCESSFUL');
+          $scope.mapplist = response;
+          $scope.mapp = "";
+      });
+  };
 
-   refreshmps();
+  refreshmps();
+
+  var refreshbk = function () {
+        $http.get('/b/b').success(function (response) {
+            console.log('READ THEATRE SUCCESSFUL');
+            $scope.booklist = response;
+            $scope.book = "";
+        });
+    };
+
+    refreshbk();
+
+ var refreshThrr = function () {
+           $http.get('/t/t').success(function (response) {
+               console.log('READ THEATRE SUCCESSFUL');
+               $scope.thtrslist = response;
+               $scope.thtrs = "";
+           });
+       };
+
+       refreshThrr();
+
+     var refreshCity = function () {
+           $http.get('/c/c').success(function (response) {
+               $scope.citieslist = response;
+               console.log('READ IS SUCCESSFUL');
+               $scope.cities = "";
+           });
+       };
+
+       refreshCity();
+
+       var refreshShow = function () {
+             $http.get('/sh/sh').success(function (response) {
+                 console.log('READ IS SUCCESSFUL');
+                 $scope.showtimelist = response;
+                 $scope.showtime = "";
+             });
+         };
+
+         refreshShow();
+
+
+
 
 
    var selected=[];
@@ -35,7 +85,7 @@ module.exports = function($scope, $http, $log, $rootScope) {
          if(reserved.indexOf(seatPos) > -1) {
                        return 'reserved';
                    } else if(selected.indexOf(seatPos) > -1) {
-                       return selected;
+                       return 'selected';
                    }
 
                }

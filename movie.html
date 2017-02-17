@@ -1,20 +1,106 @@
-<div class="container">
+<style>
+form .stars {
+background: url("stars.png") repeat-x 0 0;
+width: 150px;
+margin: 0 auto;
+}
+</style>
+<style>
+form .stars input[type="radio"] {
+position: absolute;
+opacity: 0;
+filter: alpha(opacity=0);
+}
+form .stars input[type="radio"].star-5:checked ~ span { width: 100%; }
+form .stars input[type="radio"].star-4:checked ~ span { width: 80%; }
+form .stars input[type="radio"].star-3:checked ~ span { width: 60%; }
+form .stars input[type="radio"].star-2:checked ~ span { width: 40%; }
+form .stars input[type="radio"].star-1:checked ~ span { width: 20%; }
+form .stars label {
+display: block;
+width: 30px;
+height: 30px;
+margin: 0!important;
+padding: 0!important;
+text-indent: -999em;
+float: left;
+position: relative;
+z-index: 10;
+background: transparent!important;
+cursor: pointer;
+}
+form .stars label:hover ~ span { background-position: 0 -30px; }
+form .stars label.star-5:hover ~ span { width: 100% !important; }
+form .stars label.star-4:hover ~ span { width: 80% !important; }
+form .stars label.star-3:hover ~ span { width: 60% !important; }
+form .stars label.star-2:hover ~ span { width: 40% !important; }
+form .stars label.star-1:hover ~ span { width: 20% !important; }
+form .stars span {
+  display: block;
+  width: 0;
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 30px;
+  background: url("stars.png") repeat-x 0 -60px;
+  -webkit-transition: -webkit-width 0.5s;
+  -moz-transition: -moz-width 0.5s;
+  -ms-transition: -ms-width 0.5s;
+-o-transition: -o-width 0.5s;
+transition: width 0.5s;
 
-      <h2> BOOKING DETAIL'S</h2>
-<img src="{{m.moviePoster}}" style="width:200px;height:200px;">
-    <div class="form-group">
-      <label for="name">MovieName:</label>
-      <input type="text" name="moviename" value="{{m.movieTitle}}" >
-    </div>
-      <div class="form-group">
-        <label for="name">Theatre Name:</label>
-        <input type="text" name="Theatrename" value="{{t.theatreName}}" >
-    </div>
-    <div class="form-group">
-      <label for="date">Reservation Date:</label>
-      <input type="date" name="Reservation" min="1" max="20" >
-  </div>
-  <div class="table-responsive"style="margin-top: 6%">
+}
+
+</style>
+
+<div class="container">
+  <!-- <div class="container" style="margin-top:10%"> -->
+    <h2> BOOKING DETAIL'S</h2>
+    <div class="table-responsive">
+      <table class="table">
+        <tr>
+  <td><b>Movie Name</b></td>
+  <td><img src="{{m.moviePoster}}" style="width:200px;height:200px;"></td>
+  </tr>
+      <tr>
+         <td><b>Movie Title</b></td>
+       <td><p>{{m.movieTitle}}</p></td>
+     </tr>
+<tr>
+  <!-- <td><b>Select City:</b></td>
+  <td><select ng-model="book.city">
+  <option ng-repeat=" cty in citieslist">{{cty.cityName}}</option>
+  </select></td> -->
+  <td><b>Select City:</b></td>
+  <td><select ng-model="book.city">
+  <option ng-repeat="mpps in mapplist|filter:m.movieTitle">{{mpps.Theatrelocation}}</option>
+  </select></td>
+</tr>
+<tr>
+  <td><b>Select TheatreName:</b></td>
+  <td><select ng-model="book.TheatreName">
+  <option ng-repeat="mpps in mapplist | filter:m.movieTitle|filter:book.city">{{mpps.Theatrename}}</option>
+  </select></td>
+</tr>
+<tr>
+  <td><b>Select Show Time:</b></td>
+  <td><select ng-model="book.Showtime">
+  <option ng-repeat="mpps in mapplist|filter:m.movieTitle|filter:mapp.Showtiming">{{mpps.Showtiming}}</option>
+  </select></td>
+</tr>
+<tr>
+   <td><b>No.of.seats:</b></td>
+ <td><input type="number" name="quantity" min="1" max="20"></td>
+</tr>
+<tr>
+   <td><b>Amount</b></td>
+ <td><select ng-model="myVar">
+ <option value="100">100
+ <option value="200">200
+ <option value="500">500</td>
+</tr>
+
+<div class="table-responsive"style="margin-top: 6%">
     <table class="table">
   <table class="seatLayout"style="margin-top: 2%;
     margin-left: 10%;">
@@ -30,12 +116,12 @@
         <tr class="tablestyle" ng-repeat="row in rows">
             <td ng-bind="row"></td>
             <td ng-repeat="col in cols" ng-click="seatClicked(row + col)" ng-switch on="getStatus(row + col)" style="padding: 5px 5px 5px 5px;">
-                <img ng-switch-when="selected" src="../img/resrc/seat.jpg" style="width:30px;height:30px;">
-                <!-- <img ng-switch-when="reserved" src="img/seatbook.png" style="width:30px;height:30px;"> -->
-                <img ng-switch-default src="../img/resrc/seat.jpg" style="width:30px;height:30px;">
+                <img ng-switch-when="selected" src="../img/resrc/sts.gif" style="width:30px;height:30px;">
+                <img ng-switch-when="reserved" src="../img/resrc/sts.gif" style="width:30px;height:30px;">
+                <img ng-switch-default src="../img/resrc/seat.gif" style="width:30px;height:30px;">
             </td>
-            <img src="../img/resrc/seat.jpg" style="width:30px;height:30px;">Available
-            <img src="../img/resrc/sts.jpg" style="width:30px;height:30px;">Reserved
+            <img src="../img/resrc/seat.gif" style="width:30px;height:30px;">AVAILABLE
+            <img src="../img/resrc/sts.gif" style="width:30px;height:30px;">BOOKED
         </tr>
     </tbody>
 </table>
@@ -54,13 +140,12 @@
       <tr class="tablestyle" ng-repeat="row in rows1">
           <td ng-bind="row"></td>
           <td ng-repeat="col in cols1" ng-click="seatClicked(row + col)" ng-switch on="getStatus(row + col)" style="padding: 5px 5px 5px 5px;">
-              <img ng-switch-when="selected" src="../img/resrc/seat.jpg" style="width:30px;height:30px;">
-              <!-- <img ng-switch-when="reserved" src="img/seatbook.png" style="width:30px;height:30px;"> -->
-              <img ng-switch-default src="../img/resrc/seat.jpg" style="width:30px;height:30px;">
-          </td>
-
-          <img src="../img/resrc/seat.jpg" style="width:30px;height:30px;">Available
-          <img src="../img/resrc/sts.jpg" style="width:30px;height:30px;">Reserved
+            <img ng-switch-when="selected" src="../img/resrc/sts.gif" style="width:30px;height:30px;">
+            <img ng-switch-when="reserved" src="../img/resrc/sts.gif" style="width:30px;height:30px;">
+            <img ng-switch-default src="../img/resrc/seat.gif" style="width:30px;height:30px;">
+        </td>
+        <img src="../img/resrc/seat.gif" style="width:30px;height:30px;">AVAILABLE
+        <img src="../img/resrc/sts.gif" style="width:30px;height:30px;">BOOKED
       </tr>
   </tbody>
 </table>
@@ -79,38 +164,45 @@
       <tr class="tablestyle" ng-repeat="row in rows1">
           <td ng-bind="row"></td>
           <td ng-repeat="col in cols1" ng-click="seatClicked(row + col)" ng-switch on="getStatus(row + col)" style="padding: 5px 5px 5px 5px;">
-              <img ng-switch-when="selected" src="../img/resrc/seat.jpg" style="width:30px;height:30px;">
-              <!-- <img ng-switch-when="reserved" src="img/seatbook.png" style="width:30px;height:30px;"> -->
-              <img ng-switch-default src="../img/resrc/seat.jpg" style="width:30px;height:30px;">
-          </td>
-          <img src="../img/resrc/seat.jpg" style="width:30px;height:30px;">Available
-          <img src="../img/resrc/sts.jpg" style="width:30px;height:30px;">Reserved
+            <img ng-switch-when="selected" src="../img/resrc/sts.gif" style="width:30px;height:30px;">
+            <img ng-switch-when="reserved" src="../img/resrc/sts.gif" style="width:30px;height:30px;">
+            <img ng-switch-default src="../img/resrc/seat.gif" style="width:30px;height:30px;">
+        </td>
+        <img src="../img/resrc/seat.gif" style="width:30px;height:30px;">AVAILABLE
+        <img src="../img/resrc/sts.gif" style="width:30px;height:30px;">BOOKED
       </tr>
   </tbody>
 </table>
 </div>
- <div class="form-group">
-   <label for="seat">No.of.seats:</label>
- <input type="number" name="quantity" min="1" max="20">
- </div>
- <div class="form-group">
- <label for="seat">Seat Type:</label>
- <select ng-model="myVar">
- <option value="gold">GOLD
- <option value="platinum">PLATINUM
- <option value="silver">SILVER
- </select></div>
- <div class="form-group">
- <label for="seat">Amount:</label>
- <select ng-model="myVar">
- <option value="100">100
- <option value="200">200
- <option value="500">500
- </select></div>
- <div class="form-group">
- <label for="ID">CARD ID:</label>
- <input type="text" name="ID" value="xxxxx">
- </div>
- <button type="submit" class="btn btn-default">Submit</button>
- </form>
+ <button type="submit" class="btn btn-danger">Submit</button>
 </div>
+<form id="ratingsForm">
+<div class="stars">
+<input type="radio" name="star" class="star-1" id="star-1">
+<label class="star-1" for="star-1">1</label>
+<input type="radio" name="star" class="star-2" id="star-2">
+<label class="star-2" for="star-2">2</label>
+<input type="radio" name="star" class="star-3" id="star-3">
+<label class="star-3" for="star-3">3</label>
+<input type="radio" name="star" class="star-4" id="star-4">
+<label class="star-4" for="star-4">4</label>
+<input type="radio" name="star" class="star-5" id="star-5">
+<label class="star-5" for="star-5">5</label>
+<span></span>
+</div>
+</form>
+<!-- <td><b>Select Theater</b></td>
+  <td><select ng-model="book.hall">
+        <option ng-repeat="map in maplist| filter:book.city">{{map.Hall}}</option>
+  </select></td>
+</tr>
+<tr>
+  <td><b>Select Date</td>
+  <td> <input  type="date" ng-model="book.date"/></td>
+ </tr>
+ <tr>
+   <td><b>Select Show Time</b></td>
+   <td>
+  <select ng-model="book.show">
+        <option ng-repeat="map in maplist| filter:book.hall">{{map.ShowTime}}</option>
+  </select></td> -->

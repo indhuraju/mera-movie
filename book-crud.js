@@ -1,22 +1,21 @@
 var express = require('express');
+var mongoose = require('mongoose');
 var router = express.Router();
 var bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({ extended: true }));
 
-
-var mongoose = require('mongoose');
-
 var bookSchema = mongoose.Schema({
-  // cityID: String,
+  BookID: String,
   MovieName: String,
   CityName: String,
   TheatreName: String,
-  // Reservation: String,
   Showtime: String,
+  Reservation : String,
+  seatnumbers: Array,
    Amount: String
 
  });
-var Book = mongoose.model('Book',bookSchema, 'Booktable');
+var Book = mongoose.model('Book',bookSchema, 'booktable');
 
 
 router.get('/b', function (req, res) {
@@ -37,21 +36,26 @@ router.get('/b/:id', function (req, res) {
 
 router.post('/b', function(req, res){
   console.log(req.body);
-  // var id = req.body.cityID;
+  // var id = req.body.BookID;
   var name = req.body.MovieName;
   var ct = req.body.CityName;
   var thrt = req.body.TheatreName;
   var Sho = req.body.Showtime;
-  var amt = req.body.amount;
+  var res = req.body.Reservation;
+  var stno = req.body.seatnumbers;
+  var amt = req.body.Amount
 var book1 = new Book({
+    // BookID : id,
     MovieName : name,
     CityName : ct,
     TheatreName : thrt,
     Showtime : sho,
-    amount : amt
+    Reservation : res,
+    seatnumbers: stno,
+    Amount : amt
 });
 
-  Book1.save(function(err, docs){
+  book1.save(function(err, docs){
     if ( err ) throw err;
     console.log("Book Saved Successfully");
     res.json(docs);

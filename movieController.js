@@ -24,15 +24,53 @@ var refreshmps = function () {
 
   refreshmps();
 
-  var refreshbk = function () {
+  var refreshbok = function () {
         $http.get('/b/b').success(function (response) {
-            console.log('READ THEATRE SUCCESSFUL');
+            // console.log('READ THEATRE SUCCESSFUL');
             $scope.booklist = response;
             $scope.book = "";
         });
     };
 
-    refreshbk();
+    refreshbok();
+
+
+    $scope.addbok = function () {
+        $scope.book.MovieName=$scope.m.movieTitle;
+        $scope.book.seatnumbers=selected;
+        console.log($scope.book);
+        $http.post('/b/b', $scope.book).success(function (response) {
+            console.log(response);
+            console.log("CREATE BOOKING IS SUCCESSFUL");
+            refreshbok();
+        });
+    };
+
+    // $scope.removebok = function (id) {
+    //     console.log(id);
+    //     $http.delete('/b/b/' + id._id).success(function (response) {
+    //         console.log(response);
+    //         console.log('DELETED SUCCESSFULLY');
+    //         refresh();
+    //     });
+    // };
+    //
+    // $scope.editbok = function (id) {
+    //      $http.get('/b/b/' + id._id).success(function (response) {
+    //         $scope.book = response[0];
+    //     });
+    // };
+    //
+    // $scope.updatebok = function () {
+    //     console.log("REACHED UPDATE");
+    //     $http.put('/b/b/' + $scope.book._id, $scope.book).success(function (response) {
+    //     console.log($scope.book._id);
+    //         console.log(response);
+    //         refresh();
+    //     })
+    // }
+
+
 
  var refreshThrr = function () {
            $http.get('/t/t').success(function (response) {
@@ -101,6 +139,12 @@ var refreshmps = function () {
             }
              document.getElementById("seating").innerHTML=selected;
        // seatClick();
+       $scope.NumberOfSeats=selected.length;
+
        }
+
+      //  function addbook() {
+      //      alert("BOOKING IS SUCCESSFUL");
+      //  }
 
    };

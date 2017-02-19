@@ -1,0 +1,157 @@
+<style>
+form .stars {
+  background: url("stars.png") repeat-x 0 0;
+  width: 150px;
+  margin: 0 auto;
+}
+
+form .stars input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+form .stars input[type="radio"].star-5:checked ~ span {
+  width: 100%;
+}
+form .stars input[type="radio"].star-4:checked ~ span {
+  width: 80%;
+}
+form .stars input[type="radio"].star-3:checked ~ span {
+  width: 60%;
+}
+form .stars input[type="radio"].star-2:checked ~ span {
+  width: 40%;
+}
+form .stars input[type="radio"].star-1:checked ~ span {
+  width: 20%;
+}
+form .stars label {
+  display: block;
+  width: 30px;
+  height: 30px;
+  margin: 0!important;
+  padding: 0!important;
+  text-indent: -999em;
+  float: left;
+  position: relative;
+  z-index: 10;
+  background: transparent!important;
+  cursor: pointer;
+}
+form .stars label:hover ~ span {
+  background-position: 0 -30px;
+}
+form .stars label.star-5:hover ~ span {
+  width: 100% !important;
+}
+form .stars label.star-4:hover ~ span {
+  width: 80% !important;
+}
+form .stars label.star-3:hover ~ span {
+  width: 60% !important;
+}
+form .stars label.star-2:hover ~ span {
+  width: 40% !important;
+}
+form .stars label.star-1:hover ~ span {
+  width: 20% !important;
+}
+form .stars span {
+  display: block;
+  width: 0;
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 30px;
+  background: url("stars.png") repeat-x 0 -60px;
+  -webkit-transition: -webkit-width 0.5s;
+  -moz-transition: -moz-width 0.5s;
+  -ms-transition: -ms-width 0.5s;
+  -o-transition: -o-width 0.5s;
+  transition: width 0.5s;
+}
+
+</style>
+
+
+<div class="container">
+  <table class="table">
+    <div class="table-responsive">
+    <tr>
+  <td><b>Movie Name</b></td>
+  <td><img src="{{m.moviePoster}}" style="width:200px;height:200px;float:left;">
+  </td>
+</tr>
+<tr>
+  <td><b>E-mail:</b></td>
+  <td><input type="text" name="email"></td>
+</tr>
+<tr>
+  <td>
+<form>
+    <div class="stars">
+		<input type="radio" name="star" class="star-1" id="star-1" />
+		<label class="star-1" for="star-1">1</label>
+		<input type="radio" name="star" class="star-2" id="star-2" />
+		<label class="star-2" for="star-2">2</label>
+		<input type="radio" name="star" class="star-3" id="star-3" />
+		<label class="star-3" for="star-3">3</label>
+		<input type="radio" name="star" class="star-4" id="star-4" />
+		<label class="star-4" for="star-4">4</label>
+		<input type="radio" name="star" class="star-5" id="star-5" />
+		<label class="star-5" for="star-5">5</label>
+		<span></span>
+	</div>
+</form>
+</td>
+</tr>
+<tr>
+  <td><b>Comment:</b></td>
+    <td><textarea rows="4" cols="50" name="comment" form="usrform">
+    Enter text here...</textarea></td>
+</tr>
+<tr>
+  <td>
+    <button type="button" class="btn btn-warning">Cancel</button>
+    <button type="button" class="btn btn-success">Success</button>
+  </td>
+</tr>
+</table>
+</div>
+</div>
+
+<!-- <div class="container">
+<div class="row" style="margin-top:40px;">
+  <div class="col-md-6">
+    <div class="well well-sm">
+          <div class="text-right">
+              <a class="btn btn-success btn-green" href="#reviews-anchor" id="open-review-box">Leave a Review</a>
+          </div>
+
+          <div class="row" id="post-review-box" style="display:none;">
+              <div class="col-md-12">
+                  <form accept-charset="UTF-8" action="" method="post">
+                      <input id="ratings-hidden" name="rating" type="hidden">
+                      <textarea class="form-control animated" cols="50" id="new-review" name="comment" placeholder="Enter your review here..." rows="5"></textarea>
+
+                      <div class="text-right">
+                          <div class="stars starrr" data-rating="0"></div>
+                          <a class="btn btn-danger btn-sm" href="#" id="close-review-box" style="display:none; margin-right: 10px;">
+                          <span class="glyphicon glyphicon-remove"></span>Cancel</a>
+                          <button class="btn btn-success btn-lg" type="submit">Save</button>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+
+  </div>
+</div>
+</div>
+
+<td><input type="radio" name="star" value="">1
+  <input type="radio" name="star" value=" ">2
+  <input type="radio" name="star" value=" ">3
+    <input type="radio" name="star" value=" ">4
+      <input type="radio" name="star" value=" ">5
+    </td> -->

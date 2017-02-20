@@ -1,0 +1,169 @@
+<!-- /*<style>
+.rating > span:hover:before {
+   content: "\2605";
+   position: absolute;
+}
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+   content: "\2605";
+   position: absolute;
+
+}
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
+.rating > span {
+  display: inline-block;
+  position: relative;
+  width: 1.5em;
+}
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+   content: "\2605";
+   position: absolute;
+}
+
+</style>*/ -->
+
+<div class="container">
+    <h2> BOOKING DETAIL'S</h2>
+      <table class="table">
+        <div class="table-responsive">
+        <tr>
+  <td><b>Movie Name</b></td>
+  <td><img src="{{m.moviePoster}}" style="width:200px;height:200px;"></td></tr>
+
+    <!-- <button ng-click="addreview(r)" class="btn btn-danger" href="#/review">Add Review</button></td></tr> -->
+
+      <tr>
+         <td><b>Movie Title</b></td>
+       <td><p>{{m.movieTitle}}</p></td>
+     </tr>
+
+<tr>
+  <td><b>Select City:</b></td>
+  <td><select ng-model="book.CityName">
+  <option ng-repeat="mpps in mapplist|filter:m.movieTitle">{{mpps.Theatrelocation}}</option>
+  </select></td>
+</tr>
+<tr>
+  <td><b>Select TheatreName:</b></td>
+  <td><select ng-model="book.TheatreName">
+  <option ng-repeat="mpps in mapplist | filter:m.movieTitle|filter:book.city">{{mpps.Theatrename}}</option>
+  </select></td>
+</tr>
+<tr>s
+  <td><b>Select Show Time:</b></td>
+  <td><select ng-model="book.Showtime">
+  <option ng-repeat="mpps in mapplist|filter:m.movieTitle|filter:mapp.Showtiming">{{mpps.Showtiming}}</option>
+  </select></td>
+</tr>
+
+<tr>
+   <td><b>No.of.seats:</b></td>
+     <td><input type="number" name="quantity" min="1" max="20"></td>
+</tr>
+<tr>
+  <td><b>Reservation Date:</b></td>
+<!-- <td><select ng-model="book.Reservation"> -->
+<td><input type="date" ng-model="book.Reservation"></p></td>
+</tr>
+<tr>
+  <td><b>Seating Arrangement:</b></td>
+  <!-- <td><select ng-model="book.seatnumbers"> -->
+<td><p id=seating ng-model="book.seatnumbers"></p></td>
+</tr>
+<tr>
+   <td><b>Amount</b></td>
+ <td><select ng-model="book.Amount">
+ <option value="100">100
+ <option value="200">200
+ <option value="500">500</td>
+
+</tr>
+</table>
+<div>
+<button ng-click="addbok()" class="btn btn-danger">Submit</button>
+</div>
+<div class="table-responsive" style="margin-top: 6%">
+    <table class="table">
+  <table class="seatLayout" style="margin-top: 2%;
+    margin-left: 10%;">
+    <div style="background-color:#20098A;width: 36%;margin-left: 10%;">
+    <h4 style="color:#E6CC25;text-align:center">BOOKING SEATS</h4>
+    <h4 style="background-color:#20098A;color:#E6CC25;text-align:center">GOLD</h4>
+  </div>
+    <tbody>
+      <tr>
+            <td></td>
+            <td ng-repeat="col in cols track by $index" ng-bind="col"></td>
+        </tr>
+        <tr class="tablestyle" ng-repeat="row in rows">
+            <td ng-bind="row"></td>
+            <td ng-repeat="col in cols" ng-click="seatClicked(row + col)" ng-switch on="getStatus(row + col)" style="padding: 5px 5px 5px 5px;">
+                <img ng-switch-when="selected" src="../img/resrc/sts.gif" style="width:30px;height:30px;">
+                <img ng-switch-when="reserved" src="../img/resrc/sts.gif" style="width:30px;height:30px;">
+                <img ng-switch-default src="../img/resrc/seat.gif" style="width:30px;height:30px;">
+            </td>
+            <img src="../img/resrc/seat.gif" style="width:30px;height:30px;">AVAILABLE
+            <img src="../img/resrc/sts.gif" style="width:30px;height:30px;">BOOKED
+        </tr>
+    </tbody>
+</table>
+
+<table class="seatLayout" style="margin-top: 2%;
+  margin-left: 10%;">
+  <div style="background-color:#20098A;width: 36%;margin-left: 10%;">
+  <h4 style="color:#E6CC25;text-align:center">BOOKING SEATS</h4>
+  <h4 style="background-color:#20098A;color:#E6CC25;text-align:center">PLATINUM</h4>
+</div>
+  <tbody>
+    <tr>
+          <td></td>
+          <td ng-repeat="col in cols1 track by $index" ng-bind="col"></td>
+      </tr>
+      <tr class="tablestyle" ng-repeat="row in rows1">
+          <td ng-bind="row"></td>
+          <td ng-repeat="col in cols1" ng-click="seatClicked(row + col)" ng-switch on="getStatus(row + col)" style="padding: 5px 5px 5px 5px;">
+            <img ng-switch-when="selected" src="../img/resrc/sts.gif" style="width:30px;height:30px;">
+            <img ng-switch-when="reserved" src="../img/resrc/sts.gif" style="width:30px;height:30px;">
+            <img ng-switch-default src="../img/resrc/seat.gif" style="width:30px;height:30px;">
+        </td>
+        <img src="../img/resrc/seat.gif" style="width:30px;height:30px;">AVAILABLE
+        <img src="../img/resrc/sts.gif" style="width:30px;height:30px;">BOOKED
+      </tr>
+  </tbody>
+</table>
+
+<table class="seatLayout" style="margin-top: 2%;
+  margin-left: 10%;">
+  <div style="background-color:#20098A;width: 36%;margin-left: 10%;">
+  <h4 style="color:#E6CC25;text-align:center">BOOKING SEATS</h4>
+  <h4 style="background-color:#20098A;color:#E6CC25;text-align:center">SILVER</h4>
+</div>
+  <tbody>
+    <tr>
+          <td></td>
+          <td ng-repeat="col in cols2 track by $index" ng-bind="col"></td>
+      </tr>
+      <tr class="tablestyle" ng-repeat="row in rows2">
+          <td ng-bind="row"></td>
+          <td ng-repeat="col in cols2" ng-click="seatClicked(row + col)" ng-switch on="getStatus(row + col)" style="padding: 5px 5px 5px 5px;">
+            <img ng-switch-when="selected" src="../img/resrc/sts.gif" style="width:30px;height:30px;">
+            <img ng-switch-when="reserved" src="../img/resrc/sts.gif" style="width:30px;height:30px;">
+            <img ng-switch-default src="../img/resrc/seat.gif" style="width:30px;height:30px;">
+        </td>
+        <img src="../img/resrc/seat.gif" style="width:30px;height:30px;">AVAILABLE
+        <img src="../img/resrc/sts.gif" style="width:30px;height:30px;">BOOKED
+      </tr>
+  </tbody>
+</table>
+</div>
+<div>
+<button ng-click="addconfirm(booking)" class="btn btn-danger">Confirm</button>
+</div>

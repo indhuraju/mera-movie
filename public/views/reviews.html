@@ -1,0 +1,187 @@
+<!-- /*<style>
+form .stars {
+  background: url("stars.png") repeat-x 0 0;
+  width: 150px;
+  margin: 0 auto;
+}
+
+form .stars input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+form .stars input[type="radio"].star-5:checked ~ span {
+  width: 100%;
+}
+form .stars input[type="radio"].star-4:checked ~ span {
+  width: 80%;
+}
+form .stars input[type="radio"].star-3:checked ~ span {
+  width: 60%;
+}
+form .stars input[type="radio"].star-2:checked ~ span {
+  width: 40%;
+}
+form .stars input[type="radio"].star-1:checked ~ span {
+  width: 20%;
+}
+form .stars label {
+  display: block;
+  width: 30px;
+  height: 30px;
+  margin: 0!important;
+  padding: 0!important;
+  text-indent: -999em;
+  float: left;
+  position: relative;
+  z-index: 10;
+  background: transparent!important;
+  cursor: pointer;
+}
+form .stars label:hover ~ span {
+  background-position: 0 -30px;
+}
+form .stars label.star-5:hover ~ span {
+  width: 100% !important;
+}
+form .stars label.star-4:hover ~ span {
+  width: 80% !important;
+}
+form .stars label.star-3:hover ~ span {
+  width: 60% !important;
+}
+form .stars label.star-2:hover ~ span {
+  width: 40% !important;
+}
+form .stars label.star-1:hover ~ span {
+  width: 20% !important;
+}
+form .stars span {
+  display: block;
+  width: 0;
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 30px;
+  background: url("stars.png") repeat-x 0 -60px;
+  -webkit-transition: -webkit-width 0.5s;
+  -moz-transition: -moz-width 0.5s;
+  -ms-transition: -ms-width 0.5s;
+  -o-transition: -o-width 0.5s;
+  transition: width 0.5s;
+}
+
+</style>*/ -->
+
+<style type="text/css">
+* {
+padding:0;
+margin:0;
+list-style:none;
+}
+
+ul.rating{
+background:url(images/star.jpg) bottom;
+height:21px;
+width:115px;
+overflow:hidden;
+}
+
+ul.rating li{
+display:inline
+}
+
+.rating a {
+display:block;
+width:23px;
+height:21px;
+float:left;
+text-indent:-9999px;
+position:relative;
+}
+
+.rating a:hover {
+background:url(images/star.jpg) center;
+width:115px;
+margin-left:-92px;
+position:static;
+}
+
+.rating a:active {
+background-position:top;
+}
+
+</style>
+
+<div class="container">
+    <h2> RATING DETAIL'S</h2>
+      <table class="table">
+        <div class="table-responsive">
+        <tr>
+  <td><b>Movie Name</b></td>
+  <td><img src="{{m.moviePoster}}" style="width:200px;height:200px;"></td></tr>
+      <tr>
+         <td><b>Movie Title</b></td>
+       <td><p>{{m.movieTitle}}</p></td>
+     </tr>
+<tr>
+  <td><b>E-mail:</b></td>
+  <td><input type="text" name="email"></td>
+</tr>
+<tr>
+  <td>
+    <!-- <form>
+
+      <input ng-model="Rating.FifthRating" ng-click="rt1()" class="star star-5" id="star-5" type="radio" name="star" value="1"/>
+
+      <label class="star star-5" for="star-5"></label>
+
+      <input ng-model="Rating.FourthRating" class="star star-4" id="star-4" type="radio" name="star" value="2"/>
+
+      <label class="star star-4" for="star-4"></label>
+
+      <input ng-model="Rating.ThirdRating" class="star star-3" id="star-3" type="radio" name="star" value="3"/>
+
+      <label class="star star-3" for="star-3"></label>
+
+      <input ng-model="Rating.SecondRating" class="star star-2" id="star-2" type="radio" name="star" value=4/>
+
+      <label class="star star-2" for="star-2"></label>
+
+      <input ng-model="Rating.FirstRating" class="star star-1" id="star-1" type="radio" name="star" value=5/>
+
+      <label class="star star-1" for="star-1"></label> -->
+      <!-- <button type="submit">Submit</button> -->
+
+      <!-- <span id="rateStatus">Rate Me...</span>
+<span id="ratingSaved">Rating Saved!</span>
+<div id="rateMe" title="Rate Me...">
+<a onclick="rateIt(this)" id="_1" title="Bad" onmouseover="rating(this)" onmouseout="off(this)"></a>
+<a onclick="rateIt(this)" id="_2" title="Good" onmouseover="rating(this)" onmouseout="off(this)"></a>
+<a onclick="rateIt(this)" id="_3" title="Better" onmouseover="rating(this)" onmouseout="off(this)"></a>
+<a onclick="rateIt(this)" id="_4" title="Best" onmouseover="rating(this)" onmouseout="off(this)"></a>
+<a onclick="rateIt(this)" id="_5" title="Awesome" onmouseover="rating(this)" onmouseout="off(this)"></a> -->
+<div align="center" class="style2" onmouseover="this.style.cursor='default';">
+  <span id="s1" onclick="starSelection(this.id);"onmouseout="outStar(this.id);"onmouseover= "overStar(this.id);">☆</span>
+  <span id="s2" onclick="starSelection(this.id);"onmouseout="outStar(this.id);"onmouseover= "overStar(this.id);">☆</span>
+  <span id="s3" onclick="starSelection(this.id);"onmouseout="outStar(this.id);"onmouseover= "overStar(this.id);">☆</span>
+  <span id="s4" onclick="starSelection(this.id);"onmouseout="outStar(this.id);"onmouseover= "overStar(this.id);">☆</span>
+  <span id="s5" onclick="starSelection(this.id);"onmouseout="outStar(this.id);"onmouseover= "overStar(this.id);">☆</span>
+</div>
+    </form>
+</td>
+</tr>
+<tr>
+  <td><b>Comment:</b></td>
+    <td><textarea rows="4" cols="50" name="comment" form="usrform">
+    Enter text here...</textarea></td>
+</tr>
+<tr>
+  <td>
+    <button type="button" ng-click="addsub(m)" class="btn btn-success">Submit</button>
+  </td>
+</tr>
+</table>
+</div>
+</div>
+</div>

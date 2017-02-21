@@ -1,48 +1,29 @@
 
 var express = require('express');
 var router = express.Router();
-bodyParser = require('body-parser'), //parses information from POST
-
-
-//Any requests to this controller must pass through this 'use' function
-//Copy and pasted from method-override
-router.use(bodyParser.urlencoded({ extended: true }))
-
-
+bodyParser = require('body-parser');
+router.use(bodyParser.urlencoded({ extended: true }));
 var mongoose = require('mongoose');
-var dbHost = 'mongodb://localhost:27017/test';
-mongoose.connect(dbHost);
 
-// var movieSchema = mongoose.Schema({
-//   movieID: String,
-//   movieName: String
-//  });
 
 var movieSchema = mongoose.Schema({
-  movieID:Number,
-  movieName: String,
-  movieType: String,
-  movieTheater: String,
-  movieCastandCrew: String,
-  movieDirector: String
-  movieDuration: Number
+  movieTitle:String,
+  movieYear:String,
+  movieLanguage: String,
+   moviePoster: String,
+  movieGenre: String,
+  movieDirector: String,
+  movieActors: String
  });
-// var Movie = mongoose.model('Movie', movieSchema, 'movietable');
+
 
 var Movie = mongoose.model('Movie', movieSchema, 'movietable');
-
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function(){
-  console.log("Connected to DB");
-});
-
 
 router.get('/movie', function (req, res) {
     console.log("REACHED GET FUNCTION ON SERVER");
     Movie.find({}, function (err, docs) {
          res.json(docs);
-
+          console.log(docs);
     });
 });
 
@@ -56,20 +37,22 @@ router.get('/movie/:id', function (req, res) {
 
 router.post('/movie', function(req, res){
   console.log(req.body);
-  var id = req.body.movieID;
-  var name = req.body.movieName;
-  var theater = req.body.movieTheater;
-  var cast = req.body.movieCastandCrew;
-  var dir = req.body.movieDirector;
-  var dur = req.body.movieDuration;
+  var tit = req.body.Title;
+  var yr = req.body.Year;
+  var lan = req.body.Language;
+  var post = req.body.Poster;
+  var gen = req.body.Genre;
+  var dir = req.body.Director;
+  var act = req.body.Actors
 
   var movie1 = new Movie({
-    movieID: id,
-    movieName :name,
-    movieTheater:theater,
-    movieCastandCrew: cast,
+    movieTitle: tit,
+    movieYear :yr,
+    movieLanguage:lan,
+    moviePoster: post,
+    movieGenre: gen,
     movieDirector: dir,
-    movieDuration: dur,
+    movieActors: act
   });
 
   movie1.save(function(err, docs){
@@ -102,5 +85,6 @@ router.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
+
 
 module.exports = router;

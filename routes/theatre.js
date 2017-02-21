@@ -1,12 +1,13 @@
 
 var express = require('express');
 var router = express.Router();
-var bodyParser = require('body-parser'); //parses information from POST
+var bodyParser = require('body-parser');
+router.use(bodyParser.urlencoded({ extended: true })); //parses information from POST
 
 
 //Any requests to this controller must pass through this 'use' function
 //Copy and pasted from method-override
-router.use(bodyParser.urlencoded({ extended: true }));
+// router.use(bodyParser.urlencoded({ extended: true }))
 
 
 var mongoose = require('mongoose');
@@ -18,14 +19,16 @@ var mongoose = require('mongoose');
 //   movieName: String
 //  });
 
-var showSchema = mongoose.Schema({
-  showID:Number,
-  // showName:String,
-  showTiming: String,
+var theatreSchema = mongoose.Schema({
+  // theaterID:Number,
+  theatreName: String,
+  // theatreCity: String,
+  theatreShowTiming:String,
+  theatrelocation: String
  });
 // var Movie = mongoose.model('Movie', movieSchema, 'movietable');
 
-var show = mongoose.model('show', showSchema, 'showtable');
+var theatre = mongoose.model('theatre', theatreSchema, 'theatretable');
 
 // var db = mongoose.connection;
 // db.on('error', console.error.bind(console, 'connection error:'));
@@ -34,35 +37,39 @@ var show = mongoose.model('show', showSchema, 'showtable');
 // });
 
 
-router.get('/sh', function (req, res,next) {
+router.get('/t', function (req, res) {
     console.log("REACHED GET FUNCTION ON SERVER");
-    show.find({}, function (err, docs) {
+    theatre.find({}, function (err, docs) {
          res.json(docs);
 
     });
 });
 
-router.get('/sh/:id', function (req, res) {
+router.get('/t/:id', function (req, res) {
     console.log("REACHED GET ID FUNCTION ON SERVER");
-     show.find({_id: req.params.id}, function (err, docs) {
+     theatre.find({_id: req.params.id}, function (err, docs) {
          res.json(docs);
 
     });
 });
 
-router.post('/sh', function(req, res){
+router.post('/t', function(req, res){
   console.log(req.body);
-  var id = req.body.showID;
-  // var name = req.body.showName;
-  var time = req.body.showTiming;
+  // var id = req.body.theaterID;
+  var name = req.body.theatreName;
+  // var city = req.body.City;
+  var shtm = req.body.theatreShowTiming;
+  var lc= req.body.theatrelocation;
 
-  var showinfo = new show({
-    showID: id,
-    // showName :name,
-    showTiming : time
+  var theatreinfo = new theatre({
+    // theaterID: id,
+    theatreName :name,
+    // City: city,
+    theatreShowTiming: shtm,
+    theatrelocation: lc
   });
 
-  showinfo.save(function(err, docs){
+  theatreinfo.save(function(err, docs){
     if ( err ) throw err;
     console.log("Book Saved Successfully");
     res.json(docs);
@@ -70,17 +77,17 @@ router.post('/sh', function(req, res){
 
   })
 
-router.delete('/sh/:id', function(req, res){
+router.delete('/t/:id', function(req, res){
    console.log("REACHED Delete FUNCTION ON SERVER");
-      show.remove({_id:req.params.id}, function(err, docs){
+      theatre.remove({_id:req.params.id}, function(err, docs){
         res.json(docs);
     });
 })
 
-router.put('/sh/:id', function(req, res){
+router.put('/t/:id', function(req, res){
     console.log("REACHED PUT");
     console.log(req.body);
-    show.findOneAndUpdate({_id:req.params.id}, req.body, function (err, data) {
+    theatre.findOneAndUpdate({_id:req.params.id}, req.body, function (err, data) {
       res.json(data);
     });
 })

@@ -5,15 +5,10 @@ var bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({ extended: true }));
 
 var reviewSchema = mongoose.Schema({
-  MovieName: String,
+  movieName: String,
   Email: String,
-  FirstRating: Number,
-  SecondRating: Number,
-  ThirdRating: Number,
-  FourthRating: Number,
-  FifthRating: Number,
-  comment: String,
-  avg: String
+  rating : String,
+  comment: String
  });
 var Review = mongoose.model('Review',reviewSchema, 'reviewtable');
 
@@ -36,25 +31,16 @@ router.get('/re/:id', function (req, res) {
 
 router.post('/re', function(req, res){
   console.log(req.body);
-  var name = req.body.MovieName;
+  var tit = req.body.movieName;
   var em = req.body.Email;
-  var frst = req.body.FirstRating;
-  var snd = req.body.SecondRating;
-  var thrd = req.body.ThirdRating;
-  var furt = req.body.FourthRating;
-  var fift = req.body.FifthRating;
+  var rt = req.body.rating;
   var cmt = req.body.comment;
-  var ags = req.body.avg
+  // var ags = req.body.avg
 var review1 = new Review({
-    MovieName : name,
+    movieName : tit,
     Email: em,
-    FirstRating: frst,
-    SecondRating: snd,
-    ThirdRating: thrd,
-    FourthRating: furth,
-    FifthRating: fift,
-    comment: cmt,
-    avg: ags
+    rating : rt,
+    comment: cmt
 });
 
   review1.save(function(err, docs){

@@ -1,4 +1,3 @@
-
 'use strict';
 
 module.exports = function($scope, $http,$log, $rootScope) {
@@ -6,38 +5,49 @@ $scope.m = $rootScope.bookedMovie;
 console.log(  $scope.m);
 
 
+var refreshrev = function () {
+      $http.get('/re/re').success(function (response) {
+          $scope.reviewlist = response;
+          $scope.review = "";
+      });
+  };
 
-  function addsub(m){
-              alert(" Your Rating is confirmed");
-            }
+  refreshrev();
 
+$scope.addrev = function () {
 
-
-
+    $scope.review.movieName=$scope.m.movieTitle;
+    console.log($scope.review);
+    $http.post('/re/re', $scope.review).success(function (response) {
+        console.log(response);
+        console.log("Rating IS SUCCESSFUL");
+        refreshrev();
+    });
 };
 
+// var sum=0;
+// for (var i=0; i<5; i++)
+// {
+//     sum += this.getField("Rating." + i).value;
+// }
+// event.value = sum / 5;
 
 
+function setRating(value, doCallback) {
+      if (value && value < 0 || value > maxRating) { return; }
+      if (doCallback === undefined) { doCallback = true; }
 
+      currentRating = value || currentRating;
 
-  // var refreshbok = function () {
-  //       $http.get('/b/b').success(function (response) {
-  //           // console.log('READ THEATRE SUCCESSFUL');
-  //           $scope.booklist = response;
-  //           $scope.book = "";
-  //       });
-  //   };
-  //
-  //   refreshbok();
-  //
-  //
-  //   $scope.addbok = function () {
-  //       $scope.book.MovieName=$scope.m.movieTitle;
-  //       $scope.book.seatnumbers=selected;
-  //       console.log($scope.book);
-  //       $http.post('/b/b', $scope.book).success(function (response) {
-  //           console.log(response);
-  //           console.log("CREATE BOOKING IS SUCCESSFUL");
-  //           refreshbok();
-  //       });
-  //   };
+      iterate(stars, function(star, index) {
+        if (index < currentRating) {
+          star.classList.add('is-active');
+        } else {
+          star.classList.remove('is-active');
+        }
+      });
+
+      if (callback && doCallback) { callback(getRating()); }
+    }
+
+};

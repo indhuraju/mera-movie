@@ -2,7 +2,7 @@
 'use strict';
 
 module.exports = function($scope, $http,$log, $rootScope) {
-$scope.m = $rootScope.addconfirm;
+$scope.m = $rootScope.bookedMovie;
 console.log(  $scope.m);
 
 

@@ -1,18 +1,15 @@
-
 'use strict';
 
-module.exports = function($scope, $http, $log, $rootScope) {
+module.exports = function($scope, $http, $log, $rootScope,$location) {
   $scope.m = $rootScope.bookedMovie;
-    console.log($scope.m);
 
-//     var refresh = function () {
-//           $http.get('/map/map').success(function (response) {
-//               console.log('READ IS SUCCESSFUL');
-//               $scope.mppslist = response;
-//               $scope.mpps = "";
-//           });
-//       };
-// refresh();
+// var date;
+// var details=[];
+// $scope.seat=false;
+// var i;
+// $rootScope.seatArrange=[];
+console.log($scope.m);
+
 
 var refreshmps = function () {
       $http.get('/map/map').success(function (response) {
@@ -24,15 +21,15 @@ var refreshmps = function () {
 
   refreshmps();
 
-  var refreshbok = function () {
-        $http.get('/b/b').success(function (response) {
-            // console.log('READ THEATRE SUCCESSFUL');
-            $scope.booklist = response;
-            $scope.book = "";
-        });
-    };
-
-    refreshbok();
+  // var refreshbok = function () {
+  //       $http.get('/b/b').success(function (response) {
+  //           console.log('READ THEATRE SUCCESSFUL');
+  //           $scope.booklist = response;
+  //           $scope.book = "";
+  //       });
+  //   };
+  //
+  //   refreshbok();
 
 
     $scope.addbok = function () {
@@ -47,35 +44,10 @@ var refreshmps = function () {
     };
 
 
-    $scope.addconfirm= function (c) {
+    $scope.add = function (c) {
     $rootScope.confirmpage=c;
-    $location.path('/confirmmovie');
+    $location.path('/confirm');
             };
-
-    // $scope.removebok = function (id) {
-    //     console.log(id);
-    //     $http.delete('/b/b/' + id._id).success(function (response) {
-    //         console.log(response);
-    //         console.log('DELETED SUCCESSFULLY');
-    //         refresh();
-    //     });
-    // };
-    //
-    // $scope.editbok = function (id) {
-    //      $http.get('/b/b/' + id._id).success(function (response) {
-    //         $scope.book = response[0];
-    //     });
-    // };
-    //
-    // $scope.updatebok = function () {
-    //     console.log("REACHED UPDATE");
-    //     $http.put('/b/b/' + $scope.book._id, $scope.book).success(function (response) {
-    //     console.log($scope.book._id);
-    //         console.log(response);
-    //         refresh();
-    //     })
-    // }
-
 
 
  var refreshThrr = function () {

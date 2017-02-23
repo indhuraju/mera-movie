@@ -424,7 +424,7 @@
 <tbody>
 <tr>
                                                                  <!-- cityName -->
-<td><input ng-model="cities.cityName"/></td>
+<td><input ng-model="cities.cityName"></td>
 
 <td><button ng-click="addCity()" class="btn btn-primary">Add City</button></td>
 <td><button ng-click="updateCity()" class="btn btn-primary">Update</button></td>
@@ -464,7 +464,8 @@
 <option ng-repeat="cty in citieslist">{{cty.cityName}}</option>
  </select></div></td>
   <td>  <div class="form-group">
-    <select class="selectpicker" ng-model="thtrs.theatreShowTiming" multiple="multiple">
+    <select class="form-control" ng-model="thtrs.theatreShowTiming">
+    <!-- <select class="selectpicker" ng-model="thtrs.theatreShowTiming" multiple="multiple"> -->
       <option ng-repeat="st in showtimelist">{{st.showTiming}}</option>
       </select></div></td>
 
@@ -477,8 +478,8 @@
      <!-- <td>{{thtres.theatreName}}</td> -->
      <!-- <td>{{thtres.theatreCity}}</td> -->
      <td>{{t.theatreName}}</td>
-     <td>{{t.theatreShowTiming}}</td>
-     <td>{{t.theatrelocation}}</td>
+  <td>{{t.theatrelocation}}</td>
+  <td>{{t.theatreShowTiming}}</td>
 
 
      <td><button ng-click="editThrr(t)" class="btn btn-primary">Edit</button></td>
@@ -525,11 +526,11 @@
 <td>{{m.movieLanguage}}</td>
 <td>{{m.movieGenre}}</td>
 <td><img src="{{m.moviePoster}}" style="width:200px;height:200px;"></td>
-<!-- <td>{{m.movieGenre}}</td>
-<td>{{m.movieDirector}}</td>
+<!-- <td>{{m.moviecategories}}</td> -->
+<!-- <td>{{m.movieDirector}}</td>
 <td>{{m.movieActors}}</td> -->
-<!-- <td>{{movie.movietype}}</td>
-<td>{{movie.moviedirector}}</td> -->
+<td>{{m.movietype}}</td>
+<td>{{m.moviedirector}}</td>
 
 <td><button ng-click="removem(m)" class="btn btn-danger">Remove</button></td>
 <!-- <td><button ng-click="editm(movi)" class="btn btn-primary">Edit</button></td> -->
@@ -550,7 +551,7 @@
 <tr>
   <th>Moviename</th>
   <th>City</th>
-  <th>Theater</th>
+  <th>Theatre</th>
    <th>Show time</th>
   <th>Fromdate</th>
   <th>Todate</th>
@@ -573,7 +574,6 @@
 <select class="form-control" ng-model="mapp.Theatrelocation">
 <option ng-repeat="cty in citieslist">{{cty.cityName}}</option>
 </select></div></td>
-
 <td>
 <div class="form-group">
 <select id="thrname" class="form-control" ng-model="mapp.Theatrename">
@@ -581,7 +581,8 @@
 </select></div></td>
 <td>
   <select ng-model="mapp.Showtiming" multiple="multiple">
-    <option ng-repeat="st in showtimelist | filter:thtrs.theatreShowTiming" >{{st.showTiming}}</option>
+    <!-- <option ng-repeat="st in showtimelist | filter:mapp.Theatrelocation" >{{st.showTiming}}</option> -->
+  <option ng-repeat="st in showtimelist | filter:thtrs.theatreShowTiming" >{{st.showTiming}}</option>
     <!-- <option ng-repeat="t in thtrslist | filter:t.Showtiming" value="{{thtrs.theatreShowTiming}}">{{t.ShowTiming}}</option> -->
 </td>
 <td><input type="date" ng-model="mapp.Fromdate"></td>

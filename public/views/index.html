@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Movie Booking</title>
+  <!-- load bootstrap and fontawesome via CDN -->
+      <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+      <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body  ng-app="movieApp">
+<div>
+
+     <header>
+
+<h1><img src="../img/resrc/MERA.PNG" style="width:100px;height:50px;">
+   <center>MERA MOVIE BOOKING</center></h1>
+<nav class="navbar navbar-inverse">
+<div class="container-fluid">
+  <div class="navbar-header">
+    <img src="../img/resrc/MERA.PNG" style="width:50px;height:50px;">
+    <a class="navbar-brand" href="#"></a>
+  </div>
+  <ul class="nav navbar-nav">
+    <li class="active"><a href="#/home">Home</a></li>
+        <li class="active"><a href="#/trailers">Trailers</a></li>
+        <li class="active"><a href="#/gallery">Gallery</a></li>
+        <li class="active"><a href="#/cancelbook">Cancellation</a></li>
+
+                <li class="active"><a href="#/admin">Admin</a></li>
+
+
+  </ul>
+
+  <ul class="nav navbar-nav navbar-right">
+  <!--  <form action="demo_form.asp">
+  <li><input type="text" class="w3-input" placeholder="Search.."></li>
+    <li><button class="w3-btn w3-green">Go</button></li>
+</form> -->
+    <!-- <li><a href="#" ><span class="glyphicon glyphicon-bell"></span> </a></li>
+    <li><a href="#" ><span class="glyphicon glyphicon-location"></span> </a></li> -->
+
+    <li><a href="#"><span class="glyphicon glyphicon-user"></span>SIGN UP</a></li>
+    <li><a href="#/login"><span class="glyphicon glyphicon-log-in"></span>LOG IN</a></li>
+    </ul>
+</nav>
+</div>
+</div>
+
+        </header>
+
+
+  <div ng-view>
+
+<footer>
+
+      <!-- <div class = "container">
+        <div class = "logo active">
+          <img src >
+</div>
+</div>
+         <div class = "social media">
+           <ul class = "social-links-list">
+</ul>
+           </div> -->
+
+
+
+</footer>
+
+  </div>
+
+
+
+
+
+</div>
+
+
+
+<script type="text/javascript" src="/build/bundle.js"></script>
+</body>
+</html>

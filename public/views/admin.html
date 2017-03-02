@@ -1,9 +1,9 @@
+
 <style>
 .nav-side-menu {
   overflow: auto;
   font-size: 12px;
   font-weight: 200;
-  /*background-color: #000;*/
   top: 0px;
   width: 100%;
   height: 100%;
@@ -11,7 +11,7 @@
   margin-top:15px;
 }
 .nav-side-menu .brand {
-  background-color: red;
+  background-color: black;
   line-height: 38px;
   display: none;
   text-align: center;
@@ -28,19 +28,7 @@
   line-height: 35px;
   cursor: pointer;
       font-size: 13px;
-  /*
-    .collapsed{
-       .arrow:before{
-                 font-family: FontAwesome;
-                 content: "\f053";
-                 display: inline-block;
-                 padding-left:10px;
-                 padding-right: 10px;
-                 vertical-align: middle;
-                 float:right;
-            }
-     }
-*/
+
 }
 .nav-side-menu ul a > strong,
 .nav-side-menu li > a > strong{
@@ -51,8 +39,7 @@
 .nav-side-menu ul :not(collapsed) .arrow:before,
 .nav-side-menu li :not(collapsed) .arrow:before {
   font-family: FontAwesome;
-  /*content: "\f078";*/
-  content:"red";
+  content:"black";
   display: inline-block;
   padding-left: 10px;
   padding-right: 10px;
@@ -62,16 +49,15 @@
 }
 .nav-side-menu ul .active,
 .nav-side-menu li .active {
-  /*border-left: 3px solid #fe0266;
-  background-color: #4f5b69;*/
+
 }
 .nav-side-menu ul .sub-menu li.active,
 .nav-side-menu li .sub-menu li.active {
-  color: #d19b3d;
+  color: black;
 }
 .nav-side-menu ul .sub-menu li.active a,
 .nav-side-menu li .sub-menu li.active a {
-  color:#1182c5;
+  color:black;
 }
 .nav-side-menu ul .sub-menu li,
 .nav-side-menu li .sub-menu li {
@@ -94,7 +80,7 @@
   padding-left: 10px;
   padding-right: 10px;
   vertical-align: middle;
-  color:red;
+  color:black;
   font-weight:normal;
 }
 .nav-side-menu li {
@@ -104,11 +90,11 @@
 }
 .nav-side-menu li a {
   text-decoration: none;
-  color: red;
+  color: black;
 }
 .nav-side-menu li a:hover {
   text-decoration: none;
-  color: red;
+  color: black;
 }
 .nav-side-menu li a i {
  	display: inline-block;
@@ -139,7 +125,7 @@
     top: 10px;
     z-index: 10 !important;
     padding: 3px;
-    background-color: red;
+    background-color: black;
     color: #000;
     width: 40px;
     text-align: center;
@@ -371,6 +357,10 @@
 	background:url(http://skyrites.com/projects/spaciux/images/checkbox.jpg) no-repeat left bottom;
 }
 </style>
+
+<div class="container">
+  <button class="btn btn-success btn-block">ADMIN DETAIL'S</button>
+</div>
 <div class="container">
  <div class="row">
   <div class="col-sm-12 col-md-12">
@@ -384,7 +374,7 @@
     <ul class="menu-content collapse in" id="menu-content">
 <li class="collapsed" data-target="#showdetail" data-toggle="collapse">
 <!-- <a href="#"> -->
-  <i class=""><img src="http://skyrites.com/projects/spaciux/images/fa-user5.png" alt=""></i> <strong style="color:red">Add Show time</strong> <span class="arrow"></span></a>
+  <span class="glyphicon glyphicon-time" style="color:black"></span> <strong style="color:black">ADD SHOWTIME</strong> <span class="arrow"></span></a>
 </li>
 
 <ul id="showdetail" class="sub-menu collapse">
@@ -396,21 +386,21 @@
 </thead>
 <tbody>
 <tr>
-<td><input ng-model="showtime.showTiming "/></td>
-<td><button ng-click="addShow()" class="btn btn-primary">Add Time</button></td>
-  <td><button ng-click="updateShow()" class="btn btn-primary">Update</button></td>
+<td><input class="form-control" ng-model="showtime.showTiming " required/></td>
+<td><button ng-click="addShow()" type="button" ng-disabled="myForm.$invalid" class="btn btn-outlined btn-success">Add Time</button></td>
+  <td><button ng-click="updateShow()" class="btn btn-outlined btn-warning">Update</button></td>
 </tr>
 <tr ng-repeat="st in showtimelist">
 
    <td>{{st.showTiming}}</td>
- <td><button ng-click="removeShow(st)" class="btn btn-danger">Remove</button></td>
-   <td><button ng-click="editShow(st)" class="btn btn-primary">Edit</button></td>
+ <td><button ng-click="removeShow(st)" class="btn btn-outlined btn-danger">Remove</button></td>
+   <td><button ng-click="editShow(st)" class="btn btn-outlined btn-primary">Edit</button></td>
  </tr>
  </tbody>
  </table></li>
  </ul>
 <li class="collapsed" data-target="#citydetail" data-toggle="collapse">
-  <i class=""><img src="http://skyrites.com/projects/spaciux/images/fa-user3.png" alt=""></i> <strong style="color:red">Add City</strong> <span class="arrow"></span></a>
+  <span class="glyphicon glyphicon-map-marker" style="color:black"></span><strong style="color:black">ADD CITY</strong> <span class="arrow"></span></a>
 
 </li>
 <ul id="citydetail" class="sub-menu collapse">
@@ -424,24 +414,24 @@
 <tbody>
 <tr>
                                                                  <!-- cityName -->
-<td><input ng-model="cities.cityName"></td>
+<td><input class="form-control" ng-model="cities.cityName"></td>
 
-<td><button ng-click="addCity()" class="btn btn-primary">Add City</button></td>
-<td><button ng-click="updateCity()" class="btn btn-primary">Update</button></td>
+<td><button ng-click="addCity()" class="btn btn-outlined btn-success">Add City</button></td>
+<td><button ng-click="updateCity()" class="btn btn-outlined btn-warning">Update</button></td>
 </tr>
 <tr ng-repeat="cty in citieslist">
                                                                     <!-- <td>{{city.CityID}}</td> -->
 <td>{{cty.cityName}}</td>
 
-<td><button ng-click="removeCity(cty)" class="btn btn-danger">Remove</button></td>
-<td><button ng-click="editCity(cty)" class="btn btn-primary">Edit</button></td>
+<td><button ng-click="removeCity(cty)" class="btn btn-outlined btn-danger">Remove</button></td>
+<td><button ng-click="editCity(cty)" class="btn btn-outlined btn-primary">Edit</button></td>
 </tr>
 </tbody>
 </table></li>
 </ul>
 <li class="collapsed" data-target="#theatredetail" data-toggle="collapse">
-  <!-- <a href="#"> -->
-<i class=""><img src="http://skyrites.com/projects/spaciux/images/fa-user2.png" alt=""></i> <strong style="color:red">Add Theatres</strong> <span class="arrow"></span></a>
+
+<span class="glyphicon glyphicon-equalizer" style="color:black"></span> <strong style="color:black">ADD THEATRE</strong> <span class="arrow"></span></a>
 </li>
 <ul id="theatredetail" class="sub-menu collapse">
 <li class="active">	<table class="table">
@@ -457,40 +447,41 @@
 <tbody>
 <tr>
 
-   <td><input ng-model="thtrs.theatreName"/></td>
+   <td><input class="form-control" ng-model="thtrs.theatreName"/></td>
    <td>
 <div class="form-group">
-<select class="form-control" ng-model="thtrs.theatrelocation">
+<select class="form-control" ng-model="thtrs.theatrelocation" >
 <option ng-repeat="cty in citieslist">{{cty.cityName}}</option>
  </select></div></td>
-  <td>  <div class="form-group">
-    <select class="form-control" ng-model="thtrs.theatreShowTiming">
-    <!-- <select class="selectpicker" ng-model="thtrs.theatreShowTiming" multiple="multiple"> -->
-      <option ng-repeat="st in showtimelist">{{st.showTiming}}</option>
-      </select></div></td>
+  <!-- <td>  <div class="form-group">
+    <select ng-model="thtrs.theatreShowTiming" multiple>
+<option ng-repeat="st in showtimelist">{{st.showTiming}}</option>
+      </select></div></td> -->
+      <td>
+        <select id="selecttime"  multiple required>
+    <option ng-repeat="st in showtimelist">{{st.showTiming}}</option>
+          </select></div></td>
 
- <td><button ng-click="addThrr()" class="btn btn-primary">Add Theatre</button></td>
- <td><button ng-click="updateThrr()" class="btn btn-primary">Update</button></td>
+
+ <td><button ng-click="addThrr()" class="btn btn-outlined btn-success">Add Theatre</button></td>
+ <td><button ng-click="updateThrr()" class="btn btn-outlined btn-warning">Update</button></td>
 
  </tr>
  <tr ng-repeat="t in thtrslist">
-     <!-- <td>{{thtre.Theater ID}}</td> -->
-     <!-- <td>{{thtres.theatreName}}</td> -->
-     <!-- <td>{{thtres.theatreCity}}</td> -->
+
      <td>{{t.theatreName}}</td>
   <td>{{t.theatrelocation}}</td>
   <td>{{t.theatreShowTiming}}</td>
 
 
-     <td><button ng-click="editThrr(t)" class="btn btn-primary">Edit</button></td>
-    <td><button ng-click="removeThrr(t)" class="btn btn-danger">Remove</button></td>
+     <td><button ng-click="editThrr(t)" class="btn btn-outlined btn-primary">Edit</button></td>
+    <td><button ng-click="removeThrr(t)" class="btn btn-outlined btn-danger">Remove</button></td>
  </tr>
  </tbody>
  </table></li></ul>
  <li class="collapsed active" data-target="#moviedetail" data-toggle="collapse">
-   <i class=""><img src="http://skyrites.com/projects/spaciux/images/fa-user1.png" alt=""></i>
-   <!-- <span class="glyphicon glyphicon-film">  -->
-     <strong style="color:Red">Add Movies</strong> <span class="arrow"></span>
+   <span class="glyphicon glyphicon-facetime-video" style="color:black"></span>
+     <strong style="color:black">ADD MOVIES</strong> <span class="arrow"></span>
  </li>
 
 
@@ -499,49 +490,39 @@
   <form class="container" class="table">
 <table>
   <tbody>
-<tr>
 
 <tr>
 <th>moviename</th>
 <th>movieyear</th>
 </tr>
-<td><input ng-model="mov.movieTitle"/></td>
-<td><input ng-model="mov.movieYear"/></td>
-<!-- <td><input ng-model="mov.movieLanguage"/></td>
-<td><input ng-model="mov.moviePoster"/></td>
-<td><input ng-model="mov.movieGenre"/></td>
-<td><input ng-model="mov.movieDirector"/></td>
-<td><input ng-model="mov.movieActors"/></td> -->
+<td><input class="form-control" ng-model="mov.movieTitle"/></td>
+<td><input class="form-control" ng-model="mov.movieYear"/></td>
                                                                                                                                         <!-- <td><input ng-model="movie.movietype"/></td>
                                                                                                                                         <td><input ng-model="movie.moviedirector"/></td> -->
 
-<td><button ng-click="addm(mov)" class="btn btn-primary">Add Movie</button></td>
-<!-- <td><button ng-click="updatem()" class="btn btn-primary">Update</button></td> -->
+<td><button ng-click="addm(mov)" class="btn btn-outlined btn-success">Add Movie</button></td>
 
-</tr>
+
 <tr ng-repeat="m in moviList">
-<!-- <td>{{movie.movieID}}</td> -->
+
 <td>{{m.movieTitle}}</td>
 <td>{{m.movieYear}}</td>
 <td>{{m.movieLanguage}}</td>
 <td>{{m.movieGenre}}</td>
+<td>{{m.movieRating}}</td>
 <td><img src="{{m.moviePoster}}" style="width:200px;height:200px;"></td>
-<!-- <td>{{m.moviecategories}}</td> -->
-<!-- <td>{{m.movieDirector}}</td>
-<td>{{m.movieActors}}</td> -->
 <td>{{m.movietype}}</td>
 <td>{{m.moviedirector}}</td>
 
-<td><button ng-click="removem(m)" class="btn btn-danger">Remove</button></td>
-<!-- <td><button ng-click="editm(movi)" class="btn btn-primary">Edit</button></td> -->
-  </tr>
+<td><button ng-click="removem(m)" class="btn btn-outlined btn-danger">Remove</button></td>
+</tr>
 </tbody>
 
 </table></li></ul>
 
 
 <li class="collapsed" data-target="#mappingdetail" data-toggle="collapse">
-<i class=""><img src="http://skyrites.com/projects/spaciux/images/fa-user5.png" alt=""></i> <strong style="color:red">Add MAPPING</strong> <span class="arrow"></span></a>
+<span class="glyphicon glyphicon-blackboard" style="color:black"></span><strong style="color:black">ADD MAPPING</strong> <span class="arrow"></span></a>
 </li>
 <ul id="mappingdetail" class="sub-menu collapse fade">
 <li class="active">
@@ -559,37 +540,50 @@
 
 </tr>
 </thead>
-<tbody>
+
 <tr>
-
-
-   <td>
-<div class="form-group">
+ <td>
+<!-- <div class="form-group"> -->
 
 <select class="form-control" ng-model="mapp.Moviename">
 <option ng-repeat="m in moviList">{{m.movieTitle}}</option>
  </select></div></td>
  <td>
-   <div class="form-group">
+   <!-- <div class="form-group"> -->
 <select class="form-control" ng-model="mapp.Theatrelocation">
 <option ng-repeat="cty in citieslist">{{cty.cityName}}</option>
 </select></div></td>
+
 <td>
-<div class="form-group">
-<select id="thrname" class="form-control" ng-model="mapp.Theatrename">
+
+<!-- <div class="form-group"> -->
+<select class="form-control" id="thrname" ng-model="mapp.Theatrename" >
+
 <option ng-repeat="t in thtrslist |filter:mapp.Theatrelocation">{{t.theatreName}}</option>
 </select></div></td>
 <td>
-  <select ng-model="mapp.Showtiming" multiple="multiple">
-    <!-- <option ng-repeat="st in showtimelist | filter:mapp.Theatrelocation" >{{st.showTiming}}</option> -->
-  <option ng-repeat="st in showtimelist | filter:thtrs.theatreShowTiming" >{{st.showTiming}}</option>
-    <!-- <option ng-repeat="t in thtrslist | filter:t.Showtiming" value="{{thtrs.theatreShowTiming}}">{{t.ShowTiming}}</option> -->
-</td>
-<td><input type="date" ng-model="mapp.Fromdate"></td>
-<td><input type="date" ng-model="mapp.Todate"></td>
+<select class="form-control" id="selecttime" ng-change="selecttime()" ng-model="mapp.Showtiming" required>
+                 <optgroup label="Select" ng-repeat="th in thtrslist| filter:mapp.Theatrelocation" required>
+                   <option ng-repeat="st in thtrslist" value={{t}} required>{{t}}</option>
+                 </optgroup>
+               </select>
 
- <td><button ng-click="addmps()" class="btn btn-primary">Add Movies</button></td>
- <td><button ng-click="updatemps()" class="btn btn-primary">Update</button></td>
+  <!-- <div>
+                  <select  id="selecttime" ng-model="mapp.Showtiming">
+                    <optgroup label="Select" ng-repeat="st in thtrslist | filter:mapp.Theatrename">
+                      <option ng-repeat="t in thtrslist"{{t}}<{{t}}>{{st.theatreShowTiming}}</option>
+                    </optgroup>
+                  </select>
+                </div></td> -->
+  <!-- <select ng-model="mapp.Showtiming"  id="selecttime">
+  <option ng-repeat="st in thtrslist | filter:mapp.Theatrename">{{st.theatreShowTiming}}</option>
+  </td> -->
+<td><input type="date" ng-model="mapp.Fromdate"></td>
+
+<!-- <td><input type="date" ng-model="mapp.Todate"></td> -->
+
+ <td><button ng-click="addmps()" class="btn btn-outlined btn-success">Add Movies</button></td>
+ <td><button ng-click="updatemps()" class="btn btn-outlined btn-warning">Update</button></td>
 
  </tr>
  <tr ng-repeat=" mpps in mapplist">
@@ -599,10 +593,8 @@
      <td>{{mpps.Theatrename}}</td>
      <td>{{mpps.Showtiming}}</td>
      <td>{{mpps.Fromdate}}</td>
-     <td>{{mpps.Todate}}</td>
-
-    <td><button ng-click="removemps(mpps)" class="btn btn-danger">Remove</button></td>
-     <td><button ng-click="editmps(mpps)" class="btn btn-primary">Edit</button></td>
+    <td><button ng-click="removemps(mpps)" class="btn btn-outlined btn-danger">Remove</button></td>
+     <td><button ng-click="editmps(mpps)" class="btn btn-outlined btn-primary">Edit</button></td>
  </tr>
  </tbody>
  </table></li></ul>
@@ -610,3 +602,77 @@
 </ul>
       </div>
         </div>
+
+
+
+<style>
+
+body{padding-top:30px;}
+
+.btn-outlined {
+    border-radius: 0;
+    -webkit-transition: all 0.3s;
+       -moz-transition: all 0.3s;
+            transition: all 0.3s;
+}
+.btn-outlined.btn-primary {
+    background: none;
+    border: 3px solid #428bca;
+    color: #428bca;
+}
+.btn-outlined.btn-primary:hover,
+.btn-outlined.btn-primary:active {
+    color: #FFF;
+    background: #428bca;
+    border-color: #428bca:
+}
+
+.btn-outlined.btn-success {
+    background: none;
+    border: 3px solid #5cb85c;
+    color: #5cb85c;
+}
+.btn-outlined.btn-success:hover,
+.btn-outlined.btn-success:active {
+    color: #FFF;
+    background: #47a447;
+}
+
+.btn-outlined.btn-info {
+    background: none;
+    border: 3px solid #5bc0de;
+    color: #5bc0de;
+}
+.btn-outlined.btn-info:hover,
+.btn-outlined.btn-info:active {
+    color: #FFF;
+    background: #39b3d7;
+}
+
+.btn-outlined.btn-warning {
+    background: none;
+    border: 3px solid #f0ad4e;
+    color: #f0ad4e;
+}
+.btn-outlined.btn-warning:hover,
+.btn-outlined.btn-warning:active {
+    color: #FFF;
+    background: #ed9c28;
+}
+
+.btn-outlined.btn-danger {
+    background: none;
+    border: 3px solid #d9534f;
+    color: #d9534f;
+}
+.btn-outlined.btn-danger:hover,
+.btn-outlined.btn-danger:active {
+    color: #FFF;
+    background: #d2322d;
+}
+
+
+
+
+
+</style>
